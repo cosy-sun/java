@@ -1,0 +1,8 @@
+group = 'com.cosy.sun'
+version = '0.0.1-SNAPSHOT'
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile project(":demo-framework")
+    compile "com.codingapi.txlcn:txlcn-tm:5.0.2.RELEASE"
+    compile "mysql:mysql-connector-java"
+}

@@ -1,0 +1,44 @@
+server:
+  port: 10001
+  
+spring:
+  application:
+    name: simple-boot-project
+  rabbitmq:
+    host: test
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        #acknowledge-mode: manual
+        concurrency: 3
+        max-concurrency: 10
+  cloud:
+    zookeeper:
+      connect-string: test:2181
+      enabled: true
+      discovery:
+        enabled: true
+        register: true
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 10000
+        read-timeout: 20000
+  hystrix:
+    enabled: true
+management:
+  server:
+    port: 8081
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: 
+          "*"

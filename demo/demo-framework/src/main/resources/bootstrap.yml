@@ -1,0 +1,38 @@
+spring:
+  cloud:
+    zookeeper:
+      connect-string: test:2181
+      enabled: true
+      discovery:
+        enabled: true
+        register: true 
+  boot:
+    admin:
+      client:
+        url: http://localhost:8769
+  logging:
+    file:
+      name: admin-client.log
+  tx-lcn:
+    client:
+      manager-address: localhost:8769
+    logger:
+      enabled: true
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 10000
+        read-timeout: 20000
+  hystrix:
+    enabled: true
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*' 

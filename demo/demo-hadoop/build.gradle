@@ -1,0 +1,26 @@
+group = "com.cosy.sun"
+version = "0.0.2-SNAPSHOT"
+dependencies {
+	compile "org.springframework.boot:spring-boot-starter-web"
+	
+	compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix"
+	compile "org.springframework.cloud:spring-cloud-starter-openfeign"
+	
+	// hadoop
+	compile ("org.apache.hadoop:hadoop-client:2.7.4") {
+		exclude module: "log4j-over-slf4j"
+		exclude module: "slf4j-api"
+		exclude module: "slf4j-log4j12"
+	}
+	compile ("org.apache.hadoop:hadoop-common:2.7.4") {
+		exclude module: "log4j-over-slf4j"
+		exclude module: "slf4j-api"
+		exclude module: "slf4j-log4j12"
+	}
+	compile ("org.apache.hadoop:hadoop-hdfs:2.7.4") {
+		exclude module: "log4j-over-slf4j"
+		exclude module: "slf4j-api"
+		exclude module: "slf4j-log4j12"
+	}
+	
+}

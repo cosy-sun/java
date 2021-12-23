@@ -1,0 +1,7 @@
+group "com.cosy.sun.mail"
+version "${demoVersion}"
+dependencies {
+	compile "org.springframework.boot:spring-boot-starter-web"
+	compile "org.springframework.boot:spring-boot-starter-mail"
+	compile project(":demo-framework")
+}

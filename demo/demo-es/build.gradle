@@ -1,0 +1,17 @@
+group = "com.cosy.sun"
+version = "0.0.2-SNAPSHOT"
+dependencies {
+	compile "org.springframework.boot:spring-boot-starter-web"
+	
+	compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix"
+	compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard"
+	compile "org.springframework.cloud:spring-cloud-starter-openfeign"
+	
+	compile "org.springframework.cloud:spring-cloud-starter-sleuth"
+	
+
+	compile "org.elasticsearch.client:elasticsearch-rest-high-level-client:7.4.2"
+	compile "org.elasticsearch:elasticsearch:7.4.2"
+	
+	
+}

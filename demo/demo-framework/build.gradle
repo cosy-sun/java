@@ -1,0 +1,31 @@
+group = "com.cosy.sun"
+version = "0.0.1-SNAPSHOT"
+dependencies {
+	compile "de.codecentric:spring-boot-admin-starter-client:2.1.0"
+	
+	compile "org.springframework.cloud:spring-cloud-starter-zookeeper-discovery"
+	compile "org.apache.zookeeper:zookeeper:3.7.0"
+	
+	compile "io.springfox:springfox-swagger2:2.7.0"
+    compile "io.springfox:springfox-swagger-ui:2.7.0"
+    
+    compile "org.springframework.cloud:spring-cloud-starter-sleuth"
+    
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix"
+	compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard"
+	compile "org.springframework.cloud:spring-cloud-starter-openfeign"
+	
+	compile "com.codingapi.txlcn:txlcn-tc:5.0.2.RELEASE"
+	compile "com.codingapi.txlcn:txlcn-txmsg-netty:5.0.2.RELEASE"
+	
+	compile "org.springframework.boot:spring-boot-starter-actuator"
+	
+    compile "org.apache.commons:commons-lang3"
+	compile "commons-io:commons-io:2.7"
+	compile "org.apache.pdfbox:fontbox:2.0.1"
+    compile "org.apache.pdfbox:pdfbox:2.0.1"
+    
+	compile "io.netty:netty-all:5.0.0.Alpha1"
+    compile "commons-codec:commons-codec:1.11"
+    compile "com.alibaba:fastjson:1.2.76"
+}

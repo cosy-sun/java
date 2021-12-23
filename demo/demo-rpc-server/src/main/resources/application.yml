@@ -1,0 +1,31 @@
+start:
+  rpc:
+    enable: true
+cosysun:
+  server:
+    api: rpc-server-test
+rpc:
+  server:
+    port: 10000
+  zk:
+    addr: 192.168.56.10:2181
+  policy:
+    tcp: echoClient
+    zk: cuatorServerRegisterAdaptor
+    discovery: cuatorServerDiscoveryAdaptor
+    loadbalance: randomAdaptor
+    zip: jdkZipAdaptor
+    serial: kryoSerialAdaptor
+          
+management:
+  server:
+    ## 访问端口
+    port: 8080
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+          - shutdown
