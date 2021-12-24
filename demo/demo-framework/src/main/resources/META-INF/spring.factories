@@ -2,4 +2,4 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.cosy.sun.framework.config.Swagger2Config,\
 com.cosy.sun.framework.config.HystrixDashboardConfig,\
 com.cosy.sun.framework.config.FeignClientConfig,\
-com.cosy.sun.framework.config.AutoConfig
+com.cosy.sun.framework.config.ZookeeperConfig

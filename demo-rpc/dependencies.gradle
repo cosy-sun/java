@@ -1,0 +1,11 @@
+ext {
+    demoVersion = "0.0.1-SNAPSHOT"
+    springCloudVersion = "Greenwich.RELEASE"
+    springBootVersion = "2.1.6.RELEASE"
+    encoding = "UTF-8"
+}
+
+dependencies {
+	 compile "org.springframework.boot:spring-boot-starter-test"
+	 compile "org.projectlombok:lombok:1.18.8"
+}

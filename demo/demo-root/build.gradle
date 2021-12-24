@@ -4,5 +4,5 @@ dependencies {
 	
 	compile "org.springframework.boot:spring-boot-starter-web"
 	compile project(":demo-framework")
-	compile project(":demo-redis")
+	compile project(":demo-api")
 }

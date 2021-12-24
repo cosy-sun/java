@@ -1,4 +1,4 @@
-package com.cosy.sun.redis.api;
+package com.cosy.sun.api.redis;
 
 import org.springframework.cloud.openfeign.FeignClient;
 

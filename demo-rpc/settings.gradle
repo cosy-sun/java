@@ -1,0 +1,5 @@
+rootProject.name="demo-rpc"
+include "demo-framework-rpc"
+include "demo-api"
+include "demo-rpc-server"
+include "demo-rpc-client"

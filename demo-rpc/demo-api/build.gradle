@@ -1,5 +1,5 @@
 dependencies {
 	compile "org.springframework.boot:spring-boot-starter-web"
-	compile project(":demo-framework")
+	compile project(":demo-framework-rpc")
 }
 

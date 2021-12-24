@@ -8,8 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cosy.sun.redis.api.JedisOpApi;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.cosy.sun.api.redis.JedisOpApi;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,13 +28,16 @@ public class SimplebootprojectApplication {
 	@Autowired
 	private JedisOpApi jedis;
 	
-	@HystrixCommand(fallbackMethod = "get")
 	@GetMapping("value")
 	@ApiOperation("gettest")
 	public Object get() {
-		String string = jedis.get();
+		String string = jedis.get("szh");
 		logger.info("call demo-redis, result: {}", string);
 		return string;
+	}
+	
+	private String get1() {
+		return "fallback";
 	}
 
 }
