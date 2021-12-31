@@ -13,13 +13,13 @@ import java.util.concurrent.TimeUnit;
 public class Run {
 
 	public static void main(String[] args) {
-		List<Callable> callableList = new ArrayList<Callable>();
+		List<Callable<String>> callableList = new ArrayList<>();
 		for(int i=0;i<5;i++) {
 			callableList.add(new MyCallable("username" + (i+1), 10000));
 		}
 		ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 5, TimeUnit.SECONDS,
 				new LinkedBlockingDeque<Runnable>());
-		CompletionService csref = new ExecutorCompletionService<>(executor);
+		CompletionService<String> csref = new ExecutorCompletionService<>(executor);
 		for(int i=0;i<5;i++) {
 			csref.submit(callableList.get(i));
 		}

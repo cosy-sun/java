@@ -11,8 +11,6 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import org.junit.Test;
-
 
 public class StreamTest {
 
@@ -29,13 +27,11 @@ public class StreamTest {
 		public boolean equals(Object obj);
 	}
 
-	@Test
 	public void testa() {
 		boolean matches = Pattern.matches("", "aaaaa[");
 		System.out.println(matches);
 	}
 	
-	@Test
 	public void parallel() {
 		Stream<Integer> stream = Stream.iterate(1, (x)-> x+1).limit(10);
 		
@@ -66,7 +62,6 @@ public class StreamTest {
         System.out.println(Thread.currentThread().getName() + ":->final result->" + x);
     }
 	
-	@Test
 	public void createStream() {
 
 		// 创建空的stram流
@@ -118,7 +113,6 @@ public class StreamTest {
 		System.out.println(parallelStream);
 	}
 
-	@Test
 	public void useStream() {
 
 		// 转换流
@@ -160,12 +154,10 @@ public class StreamTest {
 
 	}
 
-	@Test
 	public void useStreamAnd() {
 		Stream.iterate(0, x -> x + 1).skip(2).limit(10).forEach(System.out::println);
 	}
 
-	@Test
 	public void testtest() {
 		String[] arr1 = new String[] { "a", "b", "c", "d", "e" };
 		String[] arr2 = new String[] { "e", "f", "g", "h", "i" };
@@ -178,7 +170,6 @@ public class StreamTest {
 
 	}
 
-	@Test
 	public void testMaxAndMin() {
 		String[] arr = new String[] { "a", "ab", "abc", "abcd", "abcde", "abcdef", "abcdefg" };
 
@@ -199,7 +190,6 @@ public class StreamTest {
 		System.out.println(anyMatch);
 	}
 
-	@Test
 	public void test() {
 
 		class Student {
@@ -210,9 +200,6 @@ public class StreamTest {
 			}
 			public String toString() {
 				return string+"---"+i;
-			}
-			public String getString() {
-				return string;
 			}
 			public int get() {
 				return i;

@@ -10,15 +10,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.cosy.sun.es.DemoEsApplication;
-import com.cosy.sun.es.dao.DemoEsDao;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoEsApplication.class)
 public class DemoEsTest {
 
-	@Autowired
-	private DemoEsDao dao;
-	
 	@Autowired
 	private RestHighLevelClient client;
 	

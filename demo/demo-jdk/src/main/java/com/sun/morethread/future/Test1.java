@@ -17,14 +17,14 @@ public class Test1 {
 		MyCallable callable4 = new MyCallable("username4", 2000);
 		MyCallable callable5 = new MyCallable("username5", 1000);
 		
-		List<Callable> callableList = new ArrayList<>();
+		List<Callable<String>> callableList = new ArrayList<>();
 		callableList.add(callable1);
 		callableList.add(callable2);
 		callableList.add(callable3);
 		callableList.add(callable4);
 		callableList.add(callable5);
 		
-		List<Future> futurelist = new ArrayList<>();
+		List<Future<String>> futurelist = new ArrayList<>();
 		ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 5, TimeUnit.SECONDS,
 				new LinkedBlockingDeque<>());
 		for(int i=0;i<5;i++) {

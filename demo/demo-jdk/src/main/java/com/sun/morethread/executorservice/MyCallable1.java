@@ -21,19 +21,14 @@ public class MyCallable1 implements Callable<String> {
 class Mycallable1A implements Callable<String> {
 	public String call() throws InterruptedException {
 		try {
-			
-		System.out.println("Mcallable1A begin " + System.currentTimeMillis());
-		for (int i = 0; i < 103456; i++) {
-			Math.random();
-			Math.random();
-			Math.random();
-		}
-		if(true){
-			System.out.println("抛出异常中断了,Mycallable1A");
-			throw new NullPointerException();
-		}
-		System.out.println("Mycallable1A end" + System.currentTimeMillis());
-		}catch(Exception e) {
+
+			System.out.println("Mcallable1A begin " + System.currentTimeMillis());
+			for (int i = 0; i < 103456; i++) {
+				Math.random();
+				Math.random();
+				Math.random();
+			}
+		} catch (Exception e) {
 			System.out.println("将异常抛出到最顶层!");
 			throw e;
 		}
@@ -44,19 +39,14 @@ class Mycallable1A implements Callable<String> {
 class Mycallable1B implements Callable<String> {
 	public String call() throws InterruptedException {
 		try {
-			
-		System.out.println("Mcallable1B begin " + System.currentTimeMillis());
-		for (int i = 0; i < 103456; i++) {
-			Math.random();
-			Math.random();
-			Math.random();
-		}
-		if(true){
-			System.out.println("抛出异常中断了,Mycallable1A");
-			throw new NullPointerException();
-		}
-		System.out.println("Mycallable1B end" + System.currentTimeMillis());
-		}catch(Exception e) {
+
+			System.out.println("Mcallable1B begin " + System.currentTimeMillis());
+			for (int i = 0; i < 103456; i++) {
+				Math.random();
+				Math.random();
+				Math.random();
+			}
+		} catch (Exception e) {
 			System.out.println("将异常抛出到最顶层!");
 			throw e;
 		}
@@ -99,20 +89,20 @@ class Mycallable22 implements Callable<String> {
 class Mycallable33 implements Callable<String> {
 	public String call() throws InterruptedException {
 		try {
-			
-		System.out.println("Mycallable33 begin " + System.currentTimeMillis());
-		for (int i = 0; i < 22324; i++) {
-			if (Thread.currentThread().isInterrupted() == false) {
 
-				Math.random();
-				Math.random();
-				Math.random();
-			} else {
-				System.out.println("Mycallable22异常中断了");
-				throw new InterruptedException();
+			System.out.println("Mycallable33 begin " + System.currentTimeMillis());
+			for (int i = 0; i < 22324; i++) {
+				if (Thread.currentThread().isInterrupted() == false) {
+
+					Math.random();
+					Math.random();
+					Math.random();
+				} else {
+					System.out.println("Mycallable22异常中断了");
+					throw new InterruptedException();
+				}
 			}
-		}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("抛出异常,并且被捕获");
 			e.printStackTrace();
 		}

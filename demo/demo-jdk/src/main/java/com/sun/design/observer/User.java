@@ -12,7 +12,7 @@ public class User implements Observer{
 	@Override
 	public void update(String message) {
 		this.message = message;
-		System.out.println(name + "  " + message);
+		System.out.println(name + "  " + this.message);
 	}
 
 	public static void main (String [] args) {

@@ -19,7 +19,8 @@ public class RedisOperatorByJedis implements JedisOpApi {
         return "test";
     }
     
-    private String fallbackCommon() {
+    @SuppressWarnings("unused")
+	private String fallbackCommon() {
     	return "fallbackjedis";
     }
 

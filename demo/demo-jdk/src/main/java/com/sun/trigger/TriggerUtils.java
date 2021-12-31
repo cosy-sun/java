@@ -142,6 +142,7 @@ public class TriggerUtils {
 			for (int i = 0; i < subs.size(); i++) {
 				TreeNode tn = subs.get(i);
 				if (!(tn.getData() instanceof ConditionBean)) {
+					@SuppressWarnings("unused")
 					TreeNode parent = tn.getParent();
 					builder.append(i ==0 ? "" : treeNode.getData());
 				}

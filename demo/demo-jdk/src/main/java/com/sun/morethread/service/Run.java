@@ -6,7 +6,7 @@ public class Run {
 		MyService service  =  new MyService();
 		MyThread thread = new MyThread(service);
 		thread.start();
-		thread.sleep(2000);
+		Thread.sleep(2000);
 		service.downMethod();
 		
 	}

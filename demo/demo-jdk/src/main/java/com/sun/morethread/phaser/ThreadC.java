@@ -4,6 +4,7 @@ import java.util.concurrent.Phaser;
 
 public class ThreadC extends Thread{
 
+	@SuppressWarnings("unused")
 	private Phaser phaser;
 	
 	public ThreadC(Phaser phaser) {

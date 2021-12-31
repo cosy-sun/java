@@ -6,6 +6,7 @@ public class MyThread extends Thread{
 
 	private CountDownLatch comingTag;
 	private CountDownLatch beginTag;
+	@SuppressWarnings("unused")
 	private CountDownLatch endTag;
 	private CountDownLatch waitTag;
 	private CountDownLatch waitRunTag;

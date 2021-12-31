@@ -14,7 +14,9 @@ import java.util.Set;
 public class BTree {
 
 	private Entry root = null;
+	@SuppressWarnings("unused")
 	private Entry rootClone = null;
+	@SuppressWarnings("unused")
 	private int size = 0;
 	
 	public void insert(int key) {
