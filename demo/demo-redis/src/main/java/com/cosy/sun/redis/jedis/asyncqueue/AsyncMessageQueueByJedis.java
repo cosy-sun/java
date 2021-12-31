@@ -13,7 +13,6 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
 
 /**
  * 基于redis的异步消费
@@ -29,7 +28,7 @@ public class AsyncMessageQueueByJedis {
 	private ThreadLocal<Set<Long>> threadId = new ThreadLocal<>();
 	
 	@Autowired
-	private JedisPool pool;
+	private Jedis jedis;
 
 	@Autowired
 	private ThreadPoolTaskExecutor threadPool;
@@ -42,7 +41,7 @@ public class AsyncMessageQueueByJedis {
 	 * @return
 	 */
 	public boolean producer(String queue, String... message) {
-		Jedis resource = pool.getResource();
+		Jedis resource = jedis;
 		resource.lpush(queue, message);
 		logger.info("数据 : {} 成功加入异步队列: {}", message, queue);
 		return true;
@@ -56,18 +55,18 @@ public class AsyncMessageQueueByJedis {
 	 */
 	public void consumer(String queue, Consumer<String> consumer) {
 		try {
-			List<String> brpop = pool.getResource().brpop(1000, queue);
+			List<String> brpop = jedis.brpop(1000, queue);
 			threadPool.execute(() -> {
 				brpop.forEach(item -> {
 					try {
 						long threadId = Thread.currentThread().getId();
 						threadLocalSet().add(threadId);
-						pool.getResource().zadd("doing", threadId, item + System.currentTimeMillis());
+						jedis.zadd("doing", threadId, item + System.currentTimeMillis());
 						consumer.accept(item);
-						pool.getResource().zrem(queue, item);
+						jedis.zrem(queue, item);
 						threadLocalSet().remove(threadId);
 					} catch(Exception e) {
-						pool.getResource().zrem(queue, item);
+						jedis.zrem(queue, item);
 						producer(queue, item);
 					}
 				});
@@ -89,11 +88,11 @@ public class AsyncMessageQueueByJedis {
 	
 	@Scheduled(cron = "*/1 * * * * *")
 	public void scanQueueNoHandler() {
-		pool.getResource().zrangeByScore("doing", 0, -1).forEach(item -> {
-			long zscore = pool.getResource().zscore("doing", item).longValue();
+		jedis.zrangeByScore("doing", 0, -1).forEach(item -> {
+			long zscore = jedis.zscore("doing", item).longValue();
 			boolean contains = threadLocalSet().contains(zscore);
 			if(!contains) {
-				pool.getResource().zrem("doing", item);
+				jedis.zrem("doing", item);
 				producer("", item);
 			}
 		});

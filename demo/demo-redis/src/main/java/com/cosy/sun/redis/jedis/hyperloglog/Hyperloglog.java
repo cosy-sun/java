@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
 
 /**
  * hyperloglog 可以用来去重, 并统计数量, 占用空间小
@@ -15,9 +14,7 @@ import redis.clients.jedis.JedisPool;
 public class Hyperloglog {
 
 	@Autowired
-	private JedisPool pool;
-	
-	private Jedis jedis = pool.getResource();
+	private Jedis jedis;
 	
 	public long pfadd(String key, String... value) {
 		long pfadd = jedis.pfadd(key, value);

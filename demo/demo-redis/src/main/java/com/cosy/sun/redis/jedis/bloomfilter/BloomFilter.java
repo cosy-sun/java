@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
 
 /**
  * 布隆过滤器 
@@ -16,9 +15,7 @@ import redis.clients.jedis.JedisPool;
 public class BloomFilter {
 
 	@Autowired
-	private JedisPool pool;
-	
-	private Jedis jedis = pool.getResource();
+	private Jedis jedis;
 	
 	public void add() {
 	}

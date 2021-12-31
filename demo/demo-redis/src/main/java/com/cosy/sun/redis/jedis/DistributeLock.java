@@ -7,7 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.Jedis;
 import redis.clients.jedis.params.SetParams;
 
 /**
@@ -23,7 +23,7 @@ public class DistributeLock {
 	private ThreadLocal<Map<String, Integer>> locks = new ThreadLocal<>();
 	
 	@Autowired
-	private JedisPool pool;
+	private Jedis jedis;
 	
 	/**
 	 * 获取锁
@@ -35,7 +35,7 @@ public class DistributeLock {
 	 */
 	private boolean _tryLock(String lockKey, String value, int expireTime) {
 		SetParams px = SetParams.setParams().nx().px(expireTime);
-		return LOCK_SUCCESS.equals(pool.getResource().set(lockKey, value, px));
+		return LOCK_SUCCESS.equals(jedis.set(lockKey, value, px));
 	}
 	
 	private Map<String, Integer> currentLock() {
@@ -70,7 +70,7 @@ public class DistributeLock {
 	 */
 	private boolean _tryRelease(String lockKey, String value) {
 		String scrpit = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
-		Object eval = pool.getResource().eval(scrpit, Collections.singletonList(lockKey), Collections.singletonList(value));
+		Object eval = jedis.eval(scrpit, Collections.singletonList(lockKey), Collections.singletonList(value));
 		return eval.equals(RELEASE_SUCCESS);
 	}
 	

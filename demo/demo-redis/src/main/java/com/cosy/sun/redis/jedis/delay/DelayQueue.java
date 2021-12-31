@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.Jedis;
 
 /**
  * redis实现延时队列
@@ -36,7 +36,7 @@ public class DelayQueue {
 	private static final Logger logger = LoggerFactory.getLogger(DelayQueue.class);
 	
 	@Autowired
-	private JedisPool pool;
+	private Jedis jedis;
 	
 	private static final String key = "com:cosy:sun:delayQueue";
 	
@@ -47,7 +47,7 @@ public class DelayQueue {
 	 * @param delayTime 延时时间
 	 */
 	public void producer(String value, double delayTime) {
-		pool.getResource().zadd(key.getBytes(), System.currentTimeMillis() + delayTime, value.getBytes());
+		jedis.zadd(key.getBytes(), System.currentTimeMillis() + delayTime, value.getBytes());
 	}
 	
 //	@Scheduled(cron = "*/1 * * * * *")
@@ -78,7 +78,7 @@ public class DelayQueue {
 		List<String> argv = new ArrayList<>();
 		argv.add("0");
 		argv.add(System.currentTimeMillis() + "");
-		Object eval = pool.getResource().eval(script, Collections.singletonList(key), argv);
+		Object eval = jedis.eval(script, Collections.singletonList(key), argv);
 		logger.info("result : {}", eval);
 	}
 	
