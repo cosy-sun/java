@@ -2,8 +2,8 @@ group = "com.cosy.sun.redis"
 version = "${demoVersion}"
 dependencies {
 	compile "org.springframework.boot:spring-boot-starter-web"
-	compile "org.redisson:redisson:3.13.2"//redisson
-	compile "redis.clients:jedis:3.7.0" //jedis
+	compile "org.redisson:redisson:${redissonVersion}"//redisson
+	compile "redis.clients:jedis:${jedisVersion}" //jedis
 	compile project(":demo-framework")
 	compile project(":demo-api")
 }

@@ -1,0 +1,10 @@
+group "com.cosy.sun.zookeeper"
+version "${demoVersion}"
+
+dependencies {
+	compile project(":demo-framework")
+	compile "com.101tec:zkclient:${zkClientVersion}"
+	compile "org.apache.curator:curator-client:${curatorVersion}"
+	compile "org.apache.curator:curator-recipes:${curatorVersion}"
+	
+}

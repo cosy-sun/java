@@ -6,10 +6,10 @@ spring:
       discovery:
         enabled: true
         register: true 
-  boot:
-    admin:
-      client:
-        url: http://localhost:8769
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:8769
   logging:
     file:
       name: admin-client.log

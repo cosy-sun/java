@@ -1,4 +1,4 @@
-package com.cosy.sun.redis.jedis;
+package com.cosy.sun.redis.jedis.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,13 +13,13 @@ public class RedisOperatorByJedis implements JedisOpApi {
 	private static final Logger logger = LoggerFactory.getLogger(RedisOperatorByJedis.class);
 	
     @Override
-    @HystrixCommand(fallbackMethod = "get")
+    @HystrixCommand(fallbackMethod = "fallbackCommon")
     public String get(String key) {
     	logger.info("redis 操作, key : {}", key);
         return "test";
     }
     
-    private String get() {
+    private String fallbackCommon() {
     	return "fallbackjedis";
     }
 

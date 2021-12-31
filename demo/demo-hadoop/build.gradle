@@ -7,17 +7,17 @@ dependencies {
 	compile project(":demo-framework")
 
 	// hadoop
-	compile ("org.apache.hadoop:hadoop-client:2.7.4") {
+	compile ("org.apache.hadoop:hadoop-client:${hadoopVersion}") {
 		exclude module: "log4j-over-slf4j"
 		exclude module: "slf4j-api"
 		exclude module: "slf4j-log4j12"
 	}
-	compile ("org.apache.hadoop:hadoop-common:2.7.4") {
+	compile ("org.apache.hadoop:hadoop-common:${hadoopVersion}") {
 		exclude module: "log4j-over-slf4j"
 		exclude module: "slf4j-api"
 		exclude module: "slf4j-log4j12"
 	}
-	compile ("org.apache.hadoop:hadoop-hdfs:2.7.4") {
+	compile ("org.apache.hadoop:hadoop-hdfs:${hadoopVersion}") {
 		exclude module: "log4j-over-slf4j"
 		exclude module: "slf4j-api"
 		exclude module: "slf4j-log4j12"

@@ -18,4 +18,5 @@ public class RedissonTest {
 	@Autowired
 	private RedisOperatorByRedisson redisson;
 	
+	
 }

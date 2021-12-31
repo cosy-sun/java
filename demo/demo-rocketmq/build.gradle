@@ -2,7 +2,7 @@ group = "com.cosy.sun"
 version = "0.0.2-SNAPSHOT"
 dependencies {
 	compile "org.springframework.boot:spring-boot-starter-web"
-	compile "org.apache.rocketmq:rocketmq-spring-boot-starter:2.1.1"
+	compile "org.apache.rocketmq:rocketmq-spring-boot-starter:${rocketmqVersion}"
 	compile project(":demo-api")
 	compile project(":demo-framework")
 }

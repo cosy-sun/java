@@ -18,7 +18,6 @@ public class RedisOperatorByRedisson implements RedissonOpApi {
 	}
 
 	public void lock() {
-		
 	}
 	
 }
