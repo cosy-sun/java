@@ -3,6 +3,7 @@ ext {
     springCloudVersion = "Greenwich.RELEASE"
     springBootVersion = "2.1.6.RELEASE"
     encoding = "UTF-8"
+    compileVersion = "1.8"
     jedisVersion = "4.0.0"
     redissonVersion = "3.13.2"
     curatorVersion = "4.0.1"
@@ -22,6 +23,7 @@ ext {
     guavaVersion = "31.0.1-jre"
     hutoolVersion = "5.7.18"
     zookeeperVersion = "3.7.0"
+    localMavenPath = "file:D://java//repojar"
 }
 
 dependencies {

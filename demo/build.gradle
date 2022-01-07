@@ -6,19 +6,21 @@ buildscript {
         }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
     }
 }
 
 subprojects{
     apply plugin: "java"
     apply plugin: "maven"
+    apply plugin: "eclipse"
+    apply plugin: "idea"
     if(!name.equals("demo-api")&&!name.equals("demo-framework")) {
 	    apply plugin: "org.springframework.boot"
     }
     apply plugin: "io.spring.dependency-management"
     apply from: "${rootProject.projectDir}/dependencies.gradle"
-    sourceCompatibility = '1.8'
+    sourceCompatibility = "${compileVersion}"
     group = "com.cosy.sun"
     version = "${demoVersion}"
     sourceSets {
@@ -40,7 +42,7 @@ subprojects{
     uploadArchives {
         repositories {
             mavenDeployer {
-                repository(url: "file:D://java//repojar")
+                repository(url: "${localMavenPath}")
                 pom.project {
                     name = project.name
                     packaging = 'jar'
