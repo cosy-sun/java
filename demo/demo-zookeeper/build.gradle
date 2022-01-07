@@ -1,6 +1,3 @@
-group "com.cosy.sun.zookeeper"
-version "${demoVersion}"
-
 dependencies {
 	compile project(":demo-framework")
 	compile "com.101tec:zkclient:${zkClientVersion}"

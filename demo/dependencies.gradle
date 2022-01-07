@@ -1,5 +1,5 @@
 ext {
-    demoVersion = "0.0.1-SNAPSHOT"
+    demoVersion = "0.0.1-RELEASE"
     springCloudVersion = "Greenwich.RELEASE"
     springBootVersion = "2.1.6.RELEASE"
     encoding = "UTF-8"

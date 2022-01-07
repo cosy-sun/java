@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.cosy.sun.redis.DemoRedisApplication;
 import com.cosy.sun.redis.jedis.DistributeLock;
+import com.cosy.sun.redis.jedis.GeoHash;
 import com.cosy.sun.redis.jedis.RedisStream;
 import com.cosy.sun.redis.jedis.delay.DelayQueue;
 import com.cosy.sun.redis.jedis.pubsub.DemoPublish;
@@ -34,6 +35,14 @@ public class JedisTest {
 	
 	@Autowired
 	private DistributeLock lock;
+	
+	@Autowired
+	private GeoHash geo;
+	
+	@Test
+	public void geoHash() {
+		geo.getAdd();
+	}
 	
 	@Test
 	public void testDistributeLock() {

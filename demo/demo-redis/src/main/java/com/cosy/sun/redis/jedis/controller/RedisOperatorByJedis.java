@@ -12,7 +12,6 @@ public class RedisOperatorByJedis implements JedisOpApi {
 
 	private static final Logger logger = LoggerFactory.getLogger(RedisOperatorByJedis.class);
 	
-    @Override
     @HystrixCommand(fallbackMethod = "fallbackCommon")
     public String get(String key) {
     	logger.info("redis 操作, key : {}", key);
@@ -20,7 +19,7 @@ public class RedisOperatorByJedis implements JedisOpApi {
     }
     
     @SuppressWarnings("unused")
-	private String fallbackCommon() {
+	private String fallbackCommon(String key) {
     	return "fallbackjedis";
     }
 
