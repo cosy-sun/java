@@ -1,5 +1,4 @@
 rootProject.name="demo"
-include "demo-jdk"
 include "demo-batch"
 include "demo-jpa"
 include "demo-test"
@@ -18,3 +17,5 @@ include "demo-manager-admin"
 include "demo-zuul"
 include "demo-api"
 include "demo-zookeeper"
+include 'demo-util'
+

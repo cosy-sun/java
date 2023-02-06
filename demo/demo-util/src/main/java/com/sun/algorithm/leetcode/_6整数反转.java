@@ -1,5 +1,7 @@
 package com.sun.algorithm.leetcode;
 
+import static java.lang.System.*;
+
 /**
  * 给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。
  *
@@ -13,7 +15,7 @@ public class _6整数反转 {
 	public static void main(String[] args) {
 		_6整数反转 _6整数反转 = new _6整数反转();
 		int revert = _6整数反转.revert(-19999);
-		System.out.println(revert);
+		out.println(revert);
 	}
 	
 	public int revert(int i) {

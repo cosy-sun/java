@@ -1,11 +1,11 @@
 package com.sun.morethread.callable;
 
+import org.junit.Test;
+
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-
-import org.junit.Test;
 
 public class CallableTest {
 
@@ -13,7 +13,7 @@ public class CallableTest {
 
 		@Override
 		public String call() throws Exception {
-			Thread.sleep(100* 1000);
+			Thread.sleep(5* 1000);
 			return Thread.currentThread().getName();
 		}
 		

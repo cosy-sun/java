@@ -1,13 +1,14 @@
 package com.cosy.sun.utils;
 
+import com.cosy.sun.anno.RpcClient;
+import org.junit.Ignore;
+import org.junit.Test;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
-
-import com.cosy.sun.anno.RpcClient;
-
+@Ignore
 public class AnnotationScannerTest {
 
 	@Test

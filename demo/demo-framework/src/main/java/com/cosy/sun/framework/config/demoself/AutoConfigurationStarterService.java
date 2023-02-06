@@ -22,5 +22,5 @@ public class AutoConfigurationStarterService {
 	StarterService starterService() {
 		return new StarterService(properties.getConfig());
 	}
-	
+
 }

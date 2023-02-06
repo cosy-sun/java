@@ -1,4 +1,4 @@
-package com.cosy.sun.redis.redisson;
+package com.cosy.sun.redis.redisson.controller;
 
 import com.cosy.sun.api.redis.RedissonOpApi;
 import org.redisson.api.RSet;

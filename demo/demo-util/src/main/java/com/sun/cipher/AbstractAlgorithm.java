@@ -1,13 +1,12 @@
 package com.sun.cipher;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.security.Key;
-
 import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
 import javax.crypto.spec.IvParameterSpec;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.security.Key;
 
 public abstract class AbstractAlgorithm {
 
@@ -74,7 +73,7 @@ public abstract class AbstractAlgorithm {
 	 */
 	public static byte[] encode(String plainText, Key key, String algorithm, String encoding, String iv) throws Exception {
 		Cipher cipher = Cipher.getInstance(algorithm);
-		cipher.init(Cipher.ENCRYPT_MODE, key, iv == null ? null : iv == null ? null : new IvParameterSpec(iv.getBytes()));
+		cipher.init(Cipher.ENCRYPT_MODE, key, iv == null ? null : new IvParameterSpec(iv.getBytes()));
 		return cipher.doFinal(plainText.getBytes(encoding));
 	}
 	

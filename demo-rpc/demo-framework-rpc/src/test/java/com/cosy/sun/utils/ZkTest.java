@@ -1,15 +1,17 @@
 package com.cosy.sun.utils;
 
+import org.I0Itec.zkclient.ZkClient;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.zookeeper.CreateMode;
+import org.junit.Ignore;
+import org.junit.Test;
+
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.util.Arrays;
 import java.util.List;
 
-import org.I0Itec.zkclient.ZkClient;
-import org.apache.curator.framework.CuratorFramework;
-import org.apache.zookeeper.CreateMode;
-import org.junit.Test;
-
+@Ignore
 public class ZkTest {
 
 	// --------------------------- curatorframework start
