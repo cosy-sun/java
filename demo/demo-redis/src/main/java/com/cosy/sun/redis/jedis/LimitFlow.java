@@ -1,21 +1,20 @@
 package com.cosy.sun.redis.jedis;
 
-import java.util.List;
-
+import cn.hutool.core.lang.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import cn.hutool.core.lang.UUID;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;
 import redis.clients.jedis.Response;
 
+import java.util.List;
+
 @Service
 public class LimitFlow {
-	
+
 	@Autowired
 	private Jedis jedis;
-	
+
 	public boolean limitFlow() {
 		long del = System.currentTimeMillis() - 10;
 		Pipeline pipelined = jedis.pipelined();

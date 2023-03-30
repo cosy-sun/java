@@ -88,13 +88,13 @@
 		拦截器有springbatch实现的compositeJobExecutionListener 组合拦截器
 							JobExecutionListenerSupport 空实现
 	-->
-	<bean id = "executionListener" class = "com.sun.listener.JobExecutionListenerImpl"/>
+	<bean id = "executionListener" class = "com.cosy.sun.listener.JobExecutionListenerImpl"/>
 	
 	
 	<!-- 忘记配置processer和creditBill -->
 	<!-- 字符一定写对 -->
-	<bean id = "processer" class = "com.sun.processer.CreditBillProcesser" scope = "step"/>
-	<bean id = "creditBill" class = "com.sun.bean.CreditBill"/>
+	<bean id = "processer" class = "com.cosy.sun.processer.CreditBillProcesser" scope = "step"/>
+	<bean id = "creditBill" class = "com.cosy.sun.bean.CreditBill"/>
 	<!-- 
 		job设置scope为step,可以在运行后期绑定参数,例如resource,可以配置成想要的文件,在jobparameters中获取
 	 -->

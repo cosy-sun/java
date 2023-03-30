@@ -28,11 +28,11 @@ public class Swagger2Config {
 				.paths(PathSelectors.any())
 				.build();
 	}
-	
+
 	@Bean
 	public UiConfiguration uiConfiguration() {
 		return new UiConfiguration(null, "list", "alpha", "schema",
                 UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS, false, true, 60000L);
 	}
-	
+
 }

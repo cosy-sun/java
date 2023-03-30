@@ -1,6 +1,6 @@
 package com.cosy.sun.test.mail;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +16,7 @@ public class DemoMailTest {
 
 	@Autowired
 	private Mail mail;
-	
+
 	@Test
 	public void test() {
 		MailBean mailBean = new MailBean();
@@ -25,5 +25,5 @@ public class DemoMailTest {
 		mailBean.setSubject("mailTest");
 		mail.sendSimpleMail(mailBean);
 	}
-	
+
 }

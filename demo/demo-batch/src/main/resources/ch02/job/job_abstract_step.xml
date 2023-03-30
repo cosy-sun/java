@@ -23,8 +23,8 @@
 	<!--  
 		定义listener  step
 	-->
-	<bean id = "stepListener1" class = "com.sun.listener.StepExecutionListenerImpl"/>
-	<bean id = "stepListener2" class = "com.sun.listener.StepExecutionListenerTwoImpl"/>
+	<bean id = "stepListener1" class = "com.cosy.sun.listener.StepExecutionListenerImpl"/>
+	<bean id = "stepListener2" class = "com.cosy.sun.listener.StepExecutionListenerTwoImpl"/>
 	<!--  
 		定义抽象父类step
 	-->
@@ -53,8 +53,8 @@
 	</batch:job>
 	<!-- 忘记配置processer和creditBill -->
 	<!-- 字符一定写对 -->
-	<bean id = "processer" class = "com.sun.processer.CreditBillProcesser" scope = "step"/>
-	<bean id = "creditBill" class = "com.sun.bean.CreditBill"/>
+	<bean id = "processer" class = "com.cosy.sun.processer.CreditBillProcesser" scope = "step"/>
+	<bean id = "creditBill" class = "com.cosy.sun.bean.CreditBill"/>
 	<bean id = "csvItemReader"
 			   class = "org.springframework.batch.item.file.FlatFileItemReader"
 			   scope = "step">

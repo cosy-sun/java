@@ -1,6 +1,6 @@
 package com.cosy.sun.redis.test.redisson;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.redisson.api.RKeys;
 import org.redisson.api.RedissonClient;
@@ -18,23 +18,23 @@ import com.cosy.sun.redis.redisson.DistributeLockByRedisson;
 public class RedissonTest {
 
 	private static final Logger logger = LoggerFactory.getLogger(RedissonTest.class);
-	
+
 	@Autowired
 	private RedissonClient client;
-	
+
 	@Autowired
 	private BloomFilterByRedisson filter;
-	
+
 	@Autowired
 	private DistributeLockByRedisson lock;
-	
+
 	@Test
 	public void testLock() {
 		for(int i = 0; i < 10; i ++) {
 			lock.lock("redissonlock" + i);
 		}
 	}
-	
+
 	@Test
 	public void testPing() {
 		RKeys keys = client.getKeys();
@@ -43,7 +43,7 @@ public class RedissonTest {
 			logger.info("key : {}", key);
 		});
 	}
-	
+
 	@Test
 	public void testBloom() {
 		boolean add = filter.add("szh");
@@ -51,5 +51,5 @@ public class RedissonTest {
 		boolean contains2 = filter.contains("szh1");
 		logger.info("添加结果: {}, 判断szh结果{}, 判断szh1结果:{}", add, contains, contains2);
 	}
-	
+
 }

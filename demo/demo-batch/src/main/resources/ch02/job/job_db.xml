@@ -85,13 +85,13 @@
 							JobExecutionListenerSupport 空实现
 	-->
 	<bean id = "executionListener" 
-		class = "com.sun.listener.JobExecutionListenerImpl"/>
+		class = "com.cosy.sun.listener.JobExecutionListenerImpl"/>
 	
 	
 	<!-- 忘记配置processer和creditBill -->
 	<!-- 字符一定写对 -->
-	<bean id = "processer" class = "com.sun.processer.CreditBillProcesser" scope = "step"/>
-	<bean id = "creditBill" class = "com.sun.bean.CreditBill"/>
+	<bean id = "processer" class = "com.cosy.sun.processer.CreditBillProcesser" scope = "step"/>
+	<bean id = "creditBill" class = "com.cosy.sun.bean.CreditBill"/>
 	<bean id = "csvItemReader"
 			   class = "org.springframework.batch.item.file.FlatFileItemReader"
 			   scope = "step">

@@ -15,7 +15,7 @@
 		class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
 		<property name="jobRepository" ref="jobRepository" />
 	</bean>
-	<bean class = "com.sun.exitcode.CustomerExitCode"/>
+	<bean class = "com.cosy.sun.exitcode.CustomerExitCode"/>
 	<!-- 事务管理 -->
 	<bean id = "transactionManager"
 		class = "org.springframework.batch.support.transaction.ResourcelessTransactionManager">
@@ -34,7 +34,7 @@
 	</batch:job>
 	<!-- 忘记配置processer和creditBill -->
 	<!-- 字符一定写对 -->
-	<bean id = "processer" class = "com.sun.processer.CreditBillProcesser" scope = "step"/>
+	<bean id = "processer" class = "com.cosy.sun.processer.CreditBillProcesser" scope = "step"/>
 	
 	<bean id = "csvItemReader" class = "org.springframework.batch.item.xml.StaxEventItemReader">
 		<property name="fragmentRootElementName" value = "credit"/>
@@ -45,7 +45,7 @@
 	<bean id = "creditMarshaller" class = "org.springframework.oxm.xstream.XStreamMarshaller">
 		<property name="aliases" >
 			<map>
-				<entry key = "credit" value = "com.sun.bean.CreditBill"></entry>
+				<entry key = "credit" value = "com.cosy.sun.bean.CreditBill"></entry>
 			</map>
 		</property>
 	

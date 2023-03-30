@@ -15,7 +15,7 @@
 		class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
 		<property name="jobRepository" ref="jobRepository" />
 	</bean>
-	<bean class = "com.sun.exitcode.CustomerExitCode"/>
+	<bean class = "com.cosy.sun.exitcode.CustomerExitCode"/>
 	<!-- 事务管理 -->
 	<bean id = "transactionManager"
 		class = "org.springframework.batch.support.transaction.ResourcelessTransactionManager">
@@ -34,8 +34,8 @@
 	</batch:job>
 	<!-- 忘记配置processer和creditBill -->
 	<!-- 字符一定写对 -->
-	<bean id = "processer" class = "com.sun.processer.CreditBillProcesser" scope = "step"/>
-	<bean id = "creditBill" class = "com.sun.bean.CreditBill"/>
+	<bean id = "processer" class = "com.cosy.sun.processer.CreditBillProcesser" scope = "step"/>
+	<bean id = "creditBill" class = "com.cosy.sun.bean.CreditBill"/>
 	
 	<bean id = "csvItemReader"
 			   class = "org.springframework.batch.item.file.FlatFileItemReader"
@@ -72,7 +72,7 @@
 	</bean>
 	
 	
-	<bean id = "multRecordSeparatorPolicy" class = "com.sun.policy.MultRecordSeparatorPolicy">
+	<bean id = "multRecordSeparatorPolicy" class = "com.cosy.sun.policy.MultRecordSeparatorPolicy">
 	</bean>
 	
 	<!--  
@@ -83,12 +83,12 @@
 		<property name = "names" value = "accountId,name,amount,data,address"></property>
 	</bean>
 	
-	<bean id = "custFieldSetMapper" class = "com.sun.fieldSetMapper.CustFieldSetMapper"/>
+	<bean id = "custFieldSetMapper" class = "com.cosy.sun.fieldSetMapper.CustFieldSetMapper"/>
 	
 	<bean id = "simpleRecordSeparatorPolicy" 
 		class = "org.springframework.batch.item.file.separator.SimpleRecordSeparatorPolicy"/>
 	
-	<bean id = "custSkipLinesCallback" class = "com.sun.callback.CustSkipLinesCallback"/>
+	<bean id = "custSkipLinesCallback" class = "com.cosy.sun.callback.CustSkipLinesCallback"/>
 	
 	<bean id = "lineTokenizer" class = "org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
 		<property name = "delimiter" value = ",">

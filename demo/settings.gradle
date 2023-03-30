@@ -1,6 +1,6 @@
 rootProject.name="demo"
 include "demo-batch"
-include "demo-jpa"
+//include "demo-jpa"
 include "demo-test"
 include "demo-manager-tm"
 include "demo-es"
@@ -19,3 +19,6 @@ include "demo-api"
 include "demo-zookeeper"
 include 'demo-util'
 
+rootProject.children.each {project ->
+    project.buildFileName = "${project.name}.gradle"
+}

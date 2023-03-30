@@ -66,12 +66,12 @@
 							JobExecutionListenerSupport 空实现
 	-->
 	<bean id = "executionListener" 
-		class = "com.sun.listener.JobExecutionListenerImpl"/>
+		class = "com.cosy.sun.listener.JobExecutionListenerImpl"/>
 	
 	
 	<!-- 忘记配置processer和creditBill -->
 	<!-- 字符一定写对 -->
-	<bean id = "processer" class = "com.sun.processer.AccessProcesser" scope = "step"/>
+	<bean id = "processer" class = "com.cosy.sun.processer.AccessProcesser" scope = "step"/>
 	<bean id = "jdbcItemReader"
 		class = "org.springframework.batch.item.database.JdbcCursorItemReader"
 		scope = "step">
@@ -79,7 +79,7 @@
 		<property name = "sql" value = "select * from access"></property>
 		<property name = "rowMapper">
 			<bean class = "org.springframework.jdbc.core.BeanPropertyRowMapper">
-				<property name = "mappedClass" value = "com.sun.bean.Access"></property>
+				<property name = "mappedClass" value = "com.cosy.sun.bean.Access"></property>
 			</bean>
 		</property>
 	</bean>
