@@ -1,0 +1,7 @@
+dependencies {
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.redisson:redisson:${redissonVersion}"//redisson
+	implementation "redis.clients:jedis:${jedisVersion}" //jedis
+	implementation project(":demo-framework")
+	implementation project(":demo-api")
+}

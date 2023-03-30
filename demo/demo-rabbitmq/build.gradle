@@ -1,7 +1,0 @@
-dependencies {
-	compile "org.springframework.boot:spring-boot-starter-web"
-
-	compile "org.springframework.boot:spring-boot-starter-amqp"
-	compile project(":demo-api")
-	compile project(":demo-framework")
-}

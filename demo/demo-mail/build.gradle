@@ -1,6 +1,0 @@
-dependencies {
-	compile "org.springframework.boot:spring-boot-starter-web"
-	compile "org.springframework.boot:spring-boot-starter-mail"
-	compile project(":demo-api")
-	compile project(":demo-framework")
-}

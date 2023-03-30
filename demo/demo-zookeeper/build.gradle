@@ -1,8 +1,0 @@
-dependencies {
-	compile "org.springframework.boot:spring-boot-starter-web"
-	compile project(":demo-framework")
-	compile "com.101tec:zkclient:${zkClientVersion}"
-	compile "org.apache.curator:curator-client:${curatorVersion}"
-	compile "org.apache.curator:curator-recipes:${curatorVersion}"
-	
-}

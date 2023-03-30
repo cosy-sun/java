@@ -1,7 +1,8 @@
 package com.cosy.sun.mysql.config;
 
-import javax.sql.DataSource;
-
+import com.alibaba.druid.pool.DruidDataSource;
+import com.atomikos.jdbc.AtomikosDataSourceBean;
+import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.atomikos.jdbc.AtomikosDataSourceBean;
-import com.mysql.cj.jdbc.MysqlXADataSource;
+import javax.sql.DataSource;
 
 @Configuration
 @MapperScan(basePackages = "com.sun.dao.a", sqlSessionFactoryRef = "sqlSessionFactory")
@@ -21,7 +20,7 @@ public class DatasourceConfig {
 
 	@Autowired
 	private DataSourceProp dsConfig;
-	
+
 	@Bean("dataSource")
 	@Primary
 	public DataSource datasource() {

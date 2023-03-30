@@ -1,9 +1,0 @@
-dependencies {
-	compile "org.springframework.boot:spring-boot-starter-web"
-	
-	compile "org.elasticsearch.client:elasticsearch-rest-high-level-client:7.16.2"
-	compile "org.elasticsearch:elasticsearch:7.16.2"
-	compile "org.elasticsearch.client:elasticsearch-rest-client:7.16.2"
-	compile project(":demo-api")
-	compile project(":demo-framework")
-}

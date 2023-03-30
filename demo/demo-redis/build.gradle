@@ -1,7 +1,0 @@
-dependencies {
-	compile "org.springframework.boot:spring-boot-starter-web"
-	compile "org.redisson:redisson:${redissonVersion}"//redisson
-	compile "redis.clients:jedis:${jedisVersion}" //jedis
-	compile project(":demo-framework")
-	compile project(":demo-api")
-}

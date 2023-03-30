@@ -2,7 +2,8 @@ buildscript {
 	repositories {
         mavenLocal()
         maven {
-            url "http://maven.aliyun.com/nexus/content/groups/public/"
+            url "https://maven.aliyun.com/nexus/content/groups/public/"
+            allowInsecureProtocol = true
         }
     }
     dependencies {
@@ -12,15 +13,13 @@ buildscript {
 
 subprojects{
     apply plugin: "java"
-    apply plugin: "maven"
-    apply plugin: "eclipse"
-    apply plugin: "idea"
-    if(!name.equals("demo-api")&&!name.equals("demo-framework")) {
-	    apply plugin: "org.springframework.boot"
-    }
+    apply plugin: "maven-publish"
+    apply plugin: "java-library"
+//    if(!name.equals("demo-api")&&!name.equals("demo-framework")) {
+//	    apply plugin: "org.springframework.boot"
+//    }
     apply plugin: "io.spring.dependency-management"
     apply from: "${rootProject.projectDir}/dependencies.gradle"
-    sourceCompatibility = "${compileVersion}"
     group = "com.cosy.sun"
     version = "${demoVersion}"
     sourceSets {
@@ -37,27 +36,36 @@ subprojects{
         imports {
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
             mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+//            mavenBom "org.springframework."
         }
     }
-    uploadArchives {
-        repositories {
-            mavenDeployer {
-                repository(url: "${localMavenPath}")
-                pom.project {
-                    name = project.name
-                    packaging = 'jar'
-                }
-            }
-
-        }
+    dependencies {
+        testImplementation "org.springframework.boot:spring-boot-starter-test"
+        implementation "org.projectlombok:lombok:1.18.26"
+        testImplementation "junit:junit"
+        testImplementation 'org.springframework.batch:spring-batch-test'
+        
     }
+//    uploadArchives {
+//        repositories {
+//            mavenDeployer {
+//                repository(url: "${localMavenPath}")
+//                pom.project {
+//                    name = project.name
+//                    packaging = 'jar'
+//                }
+//            }
+//
+//        }
+//    }
     repositories {
         mavenLocal()
         maven {
-            url "http://maven.aliyun.com/nexus/content/groups/public/"
+            url "https://maven.aliyun.com/nexus/content/groups/public/"
         }
     }
     tasks.withType(JavaCompile) {
         options.encoding = "${encoding}"
     }
+    tasks.withType(Copy).all { duplicatesStrategy 'exclude' }
 }

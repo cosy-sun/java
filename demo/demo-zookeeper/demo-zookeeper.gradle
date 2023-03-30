@@ -1,0 +1,8 @@
+dependencies {
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation project(":demo-framework")
+	implementation "com.101tec:zkclient:${zkClientVersion}"
+	implementation "org.apache.curator:curator-client:${curatorVersion}"
+	implementation "org.apache.curator:curator-recipes:${curatorVersion}"
+	
+}

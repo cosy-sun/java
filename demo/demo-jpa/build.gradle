@@ -1,5 +1,0 @@
-dependencies {
-	compile "org.springframework.boot:spring-boot-starter-data-jpa"
-	compile project(":demo-framework")
-	compile project(":demo-api")
-}
