@@ -1,12 +1,10 @@
 package com.cosy.sun.framework.config;
 
-import org.springframework.cloud.netflix.hystrix.EnableHystrix;
-import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableHystrixDashboard
-@EnableHystrix
+//@EnableHystrixDashboard
+//@EnableHystrix
 public class HystrixDashboardConfig {
 
 //	@Bean

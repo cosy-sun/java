@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:batch="http://www.springframework.org/schema/batch"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/batch 
+		http://www.springframework.org/schema/batch/spring-batch.xsd">
+	
+	<!-- 将job-repository存到数据库中的配置 -->
+	
+	<bean id = "dataSource" class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name = "driverClassName" value = "com.mysql.jdbc.Driver"/>
+		<property name = "url" value = "jdbc:mysql://localhost:3306/test"/>
+		<property name = "username" value = "root"/>
+		<property name = "password" value = "123456"/>
+	</bean>
+	
+	<bean id = "transactionManager" class = "org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name = "dataSource" ref = "dataSource"/>
+	</bean>
+
+	<batch:job-repository
+		id = "jobRepository" 
+		data-source = "dataSource" 
+		transaction-manager = "transactionManager"
+		isolation-level-for-create = "SERIALIZABLE"
+		table-prefix = "BATCH_"
+		max-varchar-length = "2500"
+	/>
+
+	<!-- 任务调度 -->
+	<bean id="jobLauncher"
+		class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+		<property name="jobRepository" ref="jobRepository" />
+	</bean>
+	<!-- 定义job -->
+	<!-- restartable配置job是否重启
+		job重启需要注意jobinstance的状态不是complied
+		如果job是不可重启的,无论jobinstance是什么状态,都不可重新执行 -->
+	<batch:job id = "billJob1" restartable = "true">
+		<batch:step id = "billStep">
+			<batch:tasklet transaction-manager = "transactionManager">
+				<batch:chunk reader = "csvItemReader"
+					   writer = "csvItemWriter"
+					   processor = "processer" 
+					   commit-interval = "2">
+				</batch:chunk>
+			</batch:tasklet>
+		</batch:step>
+		<!-- 
+				beforeJob按照顺序执行
+				afterJoba按照相反的顺序执行
+		 -->
+		<batch:listeners>
+			<batch:listener ref = "executionListener"/>
+		</batch:listeners>
+		
+		<!-- 
+			
+		 -->
+		<batch:validator  ref = "validator"/>
+	</batch:job>
+	
+	<bean id = "validator" class = "org.springframework.batch.core.job.DefaultJobParametersValidator">
+		<property name = "requiredKeys">
+			<list>
+				<value>date</value>
+				<value>createtime</value>
+			</list>
+		</property>
+		<property name = "optionalKeys">
+			<set>
+				<value>name</value>
+				<value>hahaha</value>
+			</set>
+		</property>
+	</bean>
+	
+	<!-- 
+		配置拦截器 
+		如果拦截器发生异常,那么此job的状态为false
+		拦截器有springbatch实现的compositeJobExecutionListener 组合拦截器
+							JobExecutionListenerSupport 空实现
+	-->
+	<bean id = "executionListener" 
+		class = "com.cosy.sun.batch.listener.JobExecutionListenerImpl"/>
+	
+	
+	<!-- 忘记配置processer和creditBill -->
+	<!-- 字符一定写对 -->
+	<bean id = "processer" class = "com.cosy.sun.batch.processer.CreditBillProcesser" scope = "step"/>
+	<bean id = "creditBill" class = "com.cosy.sun.batch.bean.CreditBill"/>
+	<bean id = "csvItemReader"
+			   class = "org.springframework.batch.item.file.FlatFileItemReader"
+			   scope = "step">
+		<property name = "resource" value = "classpath:ch02/data/credit-card-bill-201303.csv"/>
+		<property name = "lineMapper" >
+			<bean class = "org.springframework.batch.item.file.mapping.DefaultLineMapper">
+				<property name = "lineTokenizer" ref = "lineTokenizer"></property>
+				<property name = "fieldSetMapper">
+					<bean class = "org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
+						<property name = "prototypeBeanName" value = "creditBill"/>
+					</bean>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id = "lineTokenizer" class = "org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
+		<property name = "delimiter" value = ",">
+		</property>
+		<property name = "names">
+			<list>
+				<value>accountId</value>
+				<value>name</value>
+				<value>amount</value>
+				<value>data</value>
+				<value>address</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id = "csvItemWriter"
+			   class = "org.springframework.batch.item.file.FlatFileItemWriter"
+			   scope = "step">
+		<property name = "resource" value = "file:target/ch02/outputFile.csv" ></property>
+		<property name = "lineAggregator">
+			<bean class = "org.springframework.batch.item.file.transform.DelimitedLineAggregator" >
+				<property name = "delimiter" value = "," ></property>
+				<property name = "fieldExtractor">
+					<bean class = "org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor">
+						<property name = "names" value = "accountId,name,amount,data,address"></property>
+					</bean>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

@@ -1,3 +1,45 @@
 dependencies {
 	implementation project(":demo-framework")
+	implementation project(":demo-api")
+
+	// spring-batch
+	implementation "org.springframework.boot:spring-boot-starter-batch"
+
+	// es
+	implementation "org.elasticsearch.client:elasticsearch-rest-high-level-client:7.16.2"
+	implementation "org.elasticsearch:elasticsearch:7.16.2"
+	implementation "org.elasticsearch.client:elasticsearch-rest-client:7.16.2"
+
+	// zk
+//	implementation "com.101tec:zkclient:${zkClientVersion}"
+//	implementation "org.apache.curator:curator-client:${curatorVersion}"
+//	implementation "org.apache.curator:curator-recipes:${curatorVersion}"
+
+	//redis
+	implementation "org.redisson:redisson:${redissonVersion}"//redisson
+	implementation "redis.clients:jedis:${jedisVersion}" //jedis
+
+	// rocketmq
+	implementation "org.apache.rocketmq:rocketmq-spring-boot-starter:${rocketmqVersion}"
+
+	//rabbit
+	implementation "org.springframework.boot:spring-boot-starter-amqp"
+
+	// mysql
+	implementation "mysql:mysql-connector-java:5.1.47"
+	implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisVersion}"
+	implementation "com.alibaba:druid-spring-boot-starter:${duridVersion}"
+	implementation "org.springframework.boot:spring-boot-starter-jta-atomikos:2.7.10"
+
+	// kafka
+//	implementation "org.springframework.kafka:spring-kafka"
+
+	// mail
+	implementation "org.springframework.boot:spring-boot-starter-mail"
+
+	// mongo
+	implementation "org.springframework.boot:spring-boot-starter-data-mongodb"
+
+	// gateway
+//	implementation "org.springframework.cloud:spring-cloud-starter-gateway"
 }

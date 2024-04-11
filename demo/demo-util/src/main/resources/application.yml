@@ -1,0 +1,129 @@
+server:
+  port: 10001
+  context-path: /demo-rocketmq
+rocketmq:
+  name-server: test:9876
+  producer:
+    group: demo-producer
+spring:
+  application:
+    name: simple-boot-project
+    url: redis://test:6379
+  data:
+    mongodb:
+      uri: mongodb://test:27017/test
+  mail:
+    host: smtp.163.com
+    port: 465
+    username:
+    password:
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  kafka:
+    bootstrap-servers: test:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: kafka-group
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      auto-commit-interval: 100
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://test:3306/test?useUnicode=true&characteerEncoding=utf-8
+    username: root
+    password: 123456
+    druid:
+      #2.连接池配置
+      #初始化连接池的连接数量 大小，最小，最大
+      initial-size: 5
+      min-idle: 5x
+      max-active: 20
+      #配置获取连接等待超时的时间
+      max-wait: 60000
+      #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 30000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: true
+      test-on-return: false
+      # 是否缓存preparedStatement，也就是PSCache  官方建议MySQL下建议关闭   个人建议如果想用SQL防火墙 建议打开
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filter:
+        stat:
+          merge-sql: true
+          slow-sql-millis: 5000
+      #3.基础监控配置
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+  cache:
+    type: redis
+    redis:
+      time-to-live: 36000000
+      cache-null-value: true
+  rabbitmq:
+    host: test
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        #acknowledge-mode: manual
+        concurrency: 3
+        max-concurrency: 10
+  cloud:
+    zookeeper:
+      connect-string: test:2181
+      enabled: true
+      discovery:
+        enabled: true
+        register: true
+#zuul:
+#  routes:
+#    demo-cloud:
+#      path: /demo-rocketmq/**
+#      serviceId: demo-rocketmq
+hdfs:
+  url: hdfs://192.168.56.10:9000
+  username: root
+  replication: 2
+  blocksize: 67108864
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 10000
+        read-timeout: 20000
+  hystrix:
+    enabled: true
+management:
+  server:
+    port: 8081
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: 
+          "*"

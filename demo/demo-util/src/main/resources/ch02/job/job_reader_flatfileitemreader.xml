@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:batch="http://www.springframework.org/schema/batch"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/batch 
+	http://www.springframework.org/schema/batch/spring-batch.xsd">
+	<!-- 导入配置文件 -->
+	<bean id="jobRepository"
+		class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean" />
+	<!-- 任务调度 -->
+	<bean id="jobLauncher"
+		class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+		<property name="jobRepository" ref="jobRepository" />
+	</bean>
+	<bean class = "com.cosy.sun.batch.exitcode.CustomerExitCode"/>
+	<!-- 事务管理 -->
+	<bean id = "transactionManager"
+		class = "org.springframework.batch.support.transaction.ResourcelessTransactionManager">
+	</bean>
+	<!-- 定义job -->
+	<batch:job id = "billJob">
+		<batch:step id = "billStep">
+			<batch:tasklet transaction-manager = "transactionManager">
+				<batch:chunk reader = "csvItemReader"
+					   writer = "csvItemWriter"
+					   processor = "processer" 
+					   commit-interval = "10">
+				</batch:chunk>
+			</batch:tasklet>
+		</batch:step>
+	</batch:job>
+	<!-- 忘记配置processer和creditBill -->
+	<!-- 字符一定写对 -->
+	<bean id = "processer" class = "com.cosy.sun.batch.processer.CreditBillProcesser" scope = "step"/>
+	<bean id = "creditBill" class = "com.cosy.sun.batch.bean.CreditBill"/>
+	
+	<bean id = "csvItemReader"
+			   class = "org.springframework.batch.item.file.FlatFileItemReader"
+			   scope = "step">
+		<property name = "resource" value = "classpath:ch02/data/credit-card-201904.csv"/>
+		<!-- 跳过开始前的几行 -->
+		<property name = "linesToSkip" value = "1"/>		
+		<!-- 
+			定义跳过开始的几行之后, 需要执行什么回调操作,回调操作可以是自定义的
+		-->
+		<property name = "skippedLinesCallback" ref = "custSkipLinesCallback"></property> 
+		
+		<!-- 定义文件如何区分记录,是按照当行还是多行, 默认使用的是simplerecordseparatorpolicy
+			可以使用下面定义的multRecordSeparatorPolicy 定义多行读取记录,
+		-->
+		<property name = "recordSeparatorPolicy" ref = "simpleRecordSeparatorPolicy"></property>
+		<property name = "lineMapper" >
+			<bean class = "org.springframework.batch.item.file.mapping.DefaultLineMapper">
+				<property name = "lineTokenizer" ref = "lineTokenizer"></property>
+				<property name = "fieldSetMapper">
+					<bean class = "org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
+						<property name = "prototypeBeanName" value = "creditBill"/>
+					</bean>
+				</property>
+			</bean>
+		</property>
+		<!-- 跳过注释 -->
+		<property name = "comments">
+			<list>
+				<value>##</value>
+				<value>**</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<bean id = "multRecordSeparatorPolicy" class = "com.cosy.sun.batch.policy.MultRecordSeparatorPolicy">
+	</bean>
+	
+	<!--  
+		读取定长文件使用的tokenizer
+	-->
+	<bean id = "fixedLineTokenizer" class = "org.springframework.batch.item.file.transform.FixedLengthTokenizer">
+		<property name = "columns" value = "1-8, 9-10, 11- 12, 13-15"/>
+		<property name = "names" value = "accountId,name,amount,data,address"></property>
+	</bean>
+	
+	<bean id = "custFieldSetMapper" class = "com.cosy.sun.batch.fieldSetMapper.CustFieldSetMapper"/>
+	
+	<bean id = "simpleRecordSeparatorPolicy" 
+		class = "org.springframework.batch.item.file.separator.SimpleRecordSeparatorPolicy"/>
+	
+	<bean id = "custSkipLinesCallback" class = "com.cosy.sun.batch.callback.CustSkipLinesCallback"/>
+	
+	<bean id = "lineTokenizer" class = "org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
+		<property name = "delimiter" value = ",">
+		</property>
+		<property name = "names">
+			<list>
+				<value>accountId</value>
+				<value>name</value>
+				<value>amount</value>
+				<value>data</value>
+				<value>address</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id = "csvItemWriter"
+			   class = "org.springframework.batch.item.file.FlatFileItemWriter"
+			   scope = "step">
+		<property name = "resource" value = "file:target/ch02/outputFile.csv" ></property>
+		<property name = "headerCallback" ref = "custSkipLinesCallback"/>
+		<property name = "lineAggregator">
+			<bean class = "org.springframework.batch.item.file.transform.DelimitedLineAggregator" >
+				<property name = "delimiter" value = "," ></property>
+				<property name = "fieldExtractor">
+					<bean class = "org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor">
+						<property name = "names" value = "accountId,name,amount,data,address"></property>
+					</bean>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+</beans>
