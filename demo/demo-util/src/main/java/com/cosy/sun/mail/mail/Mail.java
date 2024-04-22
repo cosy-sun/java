@@ -18,20 +18,20 @@ public class Mail {
 	private static final Logger logger = LoggerFactory.getLogger(Mail.class);
 	
 	public void sendSimpleMail(MailBean mailBean) {
-	        try {
-	            SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-	            //邮件发送人
-	            simpleMailMessage.setFrom("");
-	            //邮件接收人
-	            simpleMailMessage.setTo(mailBean.getRecipient());
-	            //邮件主题
-	            simpleMailMessage.setSubject(mailBean.getSubject());
-	            //邮件内容
-	            simpleMailMessage.setText(mailBean.getContent());
-	            sender.send(simpleMailMessage);
-	        } catch (Exception e) {
-	            logger.error("邮件发送失败", e.getMessage());
-	        }
-	    }
+		try {
+			SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+			//邮件发送人
+			simpleMailMessage.setFrom("");
+			//邮件接收人
+			simpleMailMessage.setTo(mailBean.getRecipient());
+			//邮件主题
+			simpleMailMessage.setSubject(mailBean.getSubject());
+			//邮件内容
+			simpleMailMessage.setText(mailBean.getContent());
+			sender.send(simpleMailMessage);
+		} catch (Exception e) {
+			logger.error("邮件发送失败", e.getMessage());
+		}
+	}
 }
 
