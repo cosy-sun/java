@@ -1,7 +1,6 @@
 package com.cosy.sun;
 
 import com.cosy.sun.algorithm.*;
-import com.cosy.sun.jdk.algorithm.*;
 import org.junit.Test;
 
 import java.util.Arrays;
