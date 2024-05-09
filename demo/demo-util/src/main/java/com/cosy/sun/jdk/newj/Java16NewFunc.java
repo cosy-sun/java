@@ -1,5 +1,6 @@
 package com.cosy.sun.jdk.newj;
 
+
 public class Java16NewFunc {
 
     /**
