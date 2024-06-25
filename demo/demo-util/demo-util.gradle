@@ -12,7 +12,7 @@ dependencies {
 
 	// zk
 //	implementation "com.101tec:zkclient:${zkClientVersion}"
-//	implementation "org.apache.curator:curator-client:${curatorVersion}"
+	implementation "org.apache.curator:curator-client:${curatorVersion}"
 //	implementation "org.apache.curator:curator-recipes:${curatorVersion}"
 
 	//redis

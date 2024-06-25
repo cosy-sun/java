@@ -1,0 +1,7 @@
+-DWITH_DEBUG=1
+-DWITH_BOOST=/opt/app/boost_1_77_0
+-DCMAKE_INSTALL_PREFIX=/work/workspace/repo-other-c/mysql-server-mysql-8.1.0/mysql-server-mysql-8.1.0/cmake-build-debug/build_out
+-DMYSQL_DATADIR=/work/workspace/repo-other-c/mysql-server-mysql-8.1.0/mysql-server-mysql-8.1.0/cmake-build-debug/build_out/data
+-DSYSCONFDIR=/work/workspace/repo-other-c/mysql-server-mysql-8.1.0/mysql-server-mysql-8.1.0/cmake-build-debug/build_out/etc
+-DMYSQL_TCP_PORT=3307
+-DMYSQL_UNIX_ADDR=mysql-debug.sock

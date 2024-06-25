@@ -24,4 +24,5 @@ ext {
     hutoolVersion = "5.7.18"
     zookeeperVersion = "3.7.0"
     localMavenPath = "file:/home/sun/.gradle"
+//    vmArgs = "--enable-preview --add-modules jdk.incubator.vector"
 }

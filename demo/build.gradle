@@ -73,13 +73,13 @@ subprojects{
     }
     tasks.withType(JavaCompile) {
         options.encoding = "${encoding}"
-//        options.compilerArgs += "" +
-//                "--enable-preview " +
-//                "--add-modules=jdk.incubator.concurrent " +
-//                ",jdk.incubator.vector"
+//        options.compilerArgs += "${vmArgs}"
     }
 //    tasks.withType(Test) {
-//        jvmArgs += "--enable-preview --add-modules=jdk.incubator.concurrent"
+//        jvmArgs += "${vmArgs}"
+//    }
+//    tasks.withType(JavaExec) {
+//        jvmArgs += "${vmArgs}"
 //    }
     tasks.withType(Copy).all { duplicatesStrategy 'exclude' }
 }
