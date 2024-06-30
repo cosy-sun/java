@@ -1,4 +1,4 @@
-package com.cosy.sun.es;
+package com.cosy.sun.algorithm.leetcode;
 
 public class LC26 {
 

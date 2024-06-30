@@ -1,6 +1,5 @@
 dependencies {
 	implementation project(":demo-framework")
-	implementation project(":demo-api")
 
 	// spring-batch
 	implementation "org.springframework.boot:spring-boot-starter-batch"
@@ -12,7 +11,7 @@ dependencies {
 
 	// zk
 //	implementation "com.101tec:zkclient:${zkClientVersion}"
-	implementation "org.apache.curator:curator-client:${curatorVersion}"
+//	implementation "org.apache.curator:curator-client:${curatorVersion}"
 //	implementation "org.apache.curator:curator-recipes:${curatorVersion}"
 
 	//redis
