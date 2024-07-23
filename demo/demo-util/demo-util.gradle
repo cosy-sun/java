@@ -44,4 +44,9 @@ dependencies {
 
 	// sentinel
 	implementation "com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:2.2.1.RELEASE"
+
+	// seata
+	implementation "io.seata:seata-spring-boot-starter:1.5.2"
+
+//	implementation "org.mapstruct:mapstruct:1.5.5.Final"
 }

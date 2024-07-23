@@ -1,16 +1,30 @@
 package com.cosy.sun;
 
-import com.cosy.sun.jdk.structure.Queue;
-import com.cosy.sun.jdk.structure.Stack;
-import com.cosy.sun.jdk.structure.binaryTree.BinaryTree;
-import com.cosy.sun.jdk.structure.binaryTree.ExtendsIntee;
-import com.cosy.sun.jdk.structure.dymaicprograming.LongestCommonSubsequene;
+import com.cosy.sun.algorithm.structure.BinaryTree;
+import com.cosy.sun.algorithm.structure.LongestCommonSubsequene;
+import com.cosy.sun.algorithm.structure.Queue;
+import com.cosy.sun.algorithm.structure.Stack;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.UUID;
 
 public class TestStructure{
+	public class ExtendsIntee implements Comparable<ExtendsIntee>{
+
+		private int i = 0;
+
+		public ExtendsIntee(int i ) {
+			this.i = i;
+		}
+
+		@Override
+		public int compareTo(ExtendsIntee o) {
+
+			return this.i - o.i;
+		}
+
+	}
 
 	@Test
 	public void lcs() {

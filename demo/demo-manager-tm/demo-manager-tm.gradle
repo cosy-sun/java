@@ -1,6 +1,0 @@
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation "com.codingapi.txlcn:txlcn-tm:${txlcnVersion}"
-    implementation "mysql:mysql-connector-java"
-    implementation project(":demo-framework")
-}
