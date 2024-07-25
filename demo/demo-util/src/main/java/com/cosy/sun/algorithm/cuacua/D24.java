@@ -1,7 +1,7 @@
-package com.cosy.sun.algorithm.cuacua;
-
-/**
- *
- */
-public class D24 {
-}
+//package com.cosy.sun.algorithm.cuacua;
+//
+///**
+// *
+// */
+//public class D24 {
+//}
