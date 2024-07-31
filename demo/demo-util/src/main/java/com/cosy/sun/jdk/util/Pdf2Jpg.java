@@ -11,7 +11,6 @@ import java.nio.file.Files;
 
 public class Pdf2Jpg {
 
-	//@Test
 	public void pdfbox() throws Exception {
 		ByteArrayOutputStream os = null;
 		OutputStream out = null;

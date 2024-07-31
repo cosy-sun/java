@@ -15,15 +15,15 @@ public class User implements Observer{
 		System.out.println(name + "  " + this.message);
 	}
 
-	public static void main (String [] args) {
-		Server server = new Server();
-		User user = new User("h");
-		server.register(new User("s"));
-		server.register(new User("z"));
-		server.register(user);
-		server.setInformation("hahahah");
-		server.remove(user);
-		server.setInformation("ssss");
-	}
+//	public static void main (String [] args) {
+//		Server server = new Server();
+//		User user = new User("h");
+//		server.register(new User("s"));
+//		server.register(new User("z"));
+//		server.register(user);
+//		server.setInformation("hahahah");
+//		server.remove(user);
+//		server.setInformation("ssss");
+//	}
 	
 }

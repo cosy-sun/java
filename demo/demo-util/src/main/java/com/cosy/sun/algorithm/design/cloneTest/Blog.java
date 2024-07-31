@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("serial")
-public class Blog extends CosySun implements Serializable{
+public class Blog extends BaseClone implements Serializable{
 
 	private String blogName;
 	private String blogUrl;

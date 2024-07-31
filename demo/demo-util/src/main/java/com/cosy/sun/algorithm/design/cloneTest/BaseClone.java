@@ -1,6 +1,6 @@
 package com.cosy.sun.algorithm.design.cloneTest;
 
-public abstract class CosySun implements Cloneable {
+public abstract class BaseClone implements Cloneable {
 
 	@Override
 	public Object clone() {

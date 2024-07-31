@@ -2,9 +2,9 @@ package com.cosy.sun.algorithm.design.strategy;
 
 public class MainTest {
 
-	public static void main(String[] args) {
-		System.out.println(getStrategy(2));
-	}
+//	public static void main(String[] args) {
+//		System.out.println(getStrategy(2));
+//	}
 	
 	public static Strategy getStrategy(int i) {
 		

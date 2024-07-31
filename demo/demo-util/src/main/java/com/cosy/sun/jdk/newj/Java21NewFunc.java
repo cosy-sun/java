@@ -4,10 +4,6 @@ import java.util.concurrent.Executors;
 
 public class Java21NewFunc {
 
-    public static void main(String[] args) {
-        virtualThread();
-    }
-
     public static void virtualThread() {
         ThreadLocal<String> local = new ThreadLocal();
         local.set("sunzhenhua");

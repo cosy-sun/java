@@ -26,16 +26,16 @@ public class ZipTest {
 //		bis.close();
 //		
 //	}
-	public static void main(String[] args) {
-		File src = new File("E:\\ych");
-		File srcTo = new File("E:\\ych.zip");
-		try {
-			new ZipTest().comress(src,srcTo);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return ;
-		}
-	}
+//	public static void main(String[] args) {
+//		File src = new File("E:\\ych");
+//		File srcTo = new File("E:\\ych.zip");
+//		try {
+//			new ZipTest().comress(src,srcTo);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			return ;
+//		}
+//	}
 	public void comress(File src, File srcTo) throws Exception {
 		FileOutputStream fosSrcTo = new FileOutputStream(srcTo);
 		ZipOutputStream zos = new ZipOutputStream(fosSrcTo);

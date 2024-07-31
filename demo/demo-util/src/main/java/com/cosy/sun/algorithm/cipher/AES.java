@@ -1,14 +1,8 @@
 package com.cosy.sun.algorithm.cipher;
 
-import org.apache.commons.codec.binary.Base64;
-
-import javax.crypto.CipherInputStream;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.security.Key;
 import java.security.SecureRandom;
 
@@ -21,9 +15,9 @@ import java.security.SecureRandom;
  */
 public class AES extends AbstractAlgorithm {
 
-	private static final String encoding = "utf-8";
-	private static final String algorithm = "AES";
-	static String key = "1234567890123456";
+	public static final String encoding = "utf-8";
+	public static final String algorithm = "AES";
+	public static String key = "1234567890123456";
 	/**
 	 * 根据字符串生成密钥, 位数不足补充位数
 	 * @param key
@@ -46,38 +40,6 @@ public class AES extends AbstractAlgorithm {
 	 */
 	public static Key getSecretKey(String key) throws Exception {
 		return new SecretKeySpec(key.getBytes(), algorithm);
-	}
-
-
-	public static void main(String... args) throws Exception {
-		String str = "this is sunzhenhua";
-		byte[] encode = encode(str, getSecretKeyByFactory(key), algorithm, encoding, null);
-		System.out.println(Base64.encodeBase64String(encode));
-		byte[] decode = decode(Base64.decodeBase64(Base64.encodeBase64String(encode)), getSecretKeyByFactory(key), algorithm, encoding, null);
-		System.out.println(new String(decode));
-
-		try (FileOutputStream out = new FileOutputStream(new File("E:\\encrypt.txt"));
-				CipherInputStream cis = encrypt(getSecretKey(key), new FileInputStream(new File("E:\\txt.txt")), algorithm, null);) {
-			byte[] buff = new byte[1024];
-			int n = 0;
-			while (-1 != (n = cis.read(buff))) {
-				out.write(buff, 0, n);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		try (FileOutputStream out = new FileOutputStream(new File("E:\\decrypt.txt"));
-				CipherInputStream cis = decrypt(getSecretKey(key), new FileInputStream(new File("E:\\encrypt.txt")), algorithm, null);) {
-			byte[] buff = new byte[1024];
-			int n = 0;
-			while (-1 != (n = cis.read(buff))) {
-				out.write(buff, 0, n);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
 	}
 
 }

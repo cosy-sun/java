@@ -1,8 +1,5 @@
 package com.cosy.sun.jdk.netty;
 
-import java.net.InetSocketAddress;
-import java.util.concurrent.TimeUnit;
-
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
@@ -15,15 +12,18 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.timeout.IdleStateHandler;
 
+import java.net.InetSocketAddress;
+import java.util.concurrent.TimeUnit;
+
 public class EchoClientServer {
 
 	private static final String HOST = "127.0.0.1";
 	private static final int PORT = 11111;
 
-	public static void main(String[] args) {
-		new EchoClientServer()
-			.start();
-	}
+//	public static void main(String[] args) {
+//		new EchoClientServer()
+//			.start();
+//	}
 
 	private void start() {
 		try {

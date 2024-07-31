@@ -1,36 +1,32 @@
 package com.cosy.sun.jdk.socket.http;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.ServerSocket;
 import java.net.Socket;
 
 public class HttpServer {
 
 	@SuppressWarnings("resource")
-	public static void main(String[] args) throws Exception {
-		ServerSocket serverSocket = new ServerSocket(10000);
-		System.out.println("等待客户端的访问!");
-		while (true) {
-			Socket socket = serverSocket.accept();
-			System.out.println("客户端连接进来了!");
-			InputStream inputStream = socket.getInputStream();
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-			char[] c = new char[1024];
-			bufferedReader.read(c);
-			String str = new String(c);
-			String[] split = str.split("\n");
-			for (int i = 0; i < split.length; i++) {
-				System.out.print(split[i]);
-				parse(split[i],socket);
-				System.out.println("-------------------------");
-			}
-			socket.close();
-		}
-
-	}
+//	public static void main(String[] args) throws Exception {
+//		ServerSocket serverSocket = new ServerSocket(10000);
+//		System.out.println("等待客户端的访问!");
+//		while (true) {
+//			Socket socket = serverSocket.accept();
+//			System.out.println("客户端连接进来了!");
+//			InputStream inputStream = socket.getInputStream();
+//			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+//			char[] c = new char[1024];
+//			bufferedReader.read(c);
+//			String str = new String(c);
+//			String[] split = str.split("\n");
+//			for (int i = 0; i < split.length; i++) {
+//				System.out.print(split[i]);
+//				parse(split[i],socket);
+//				System.out.println("-------------------------");
+//			}
+//			socket.close();
+//		}
+//
+//	}
 
 	private static void parse(String str, Socket socket) throws Exception {
 		String[] strings = str.split(" ");

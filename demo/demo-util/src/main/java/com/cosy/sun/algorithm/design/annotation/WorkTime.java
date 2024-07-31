@@ -8,5 +8,5 @@ import java.lang.annotation.*;
 public @interface WorkTime {
 	//设置方法,返回值是整形
 	int value();
-	
+
 }

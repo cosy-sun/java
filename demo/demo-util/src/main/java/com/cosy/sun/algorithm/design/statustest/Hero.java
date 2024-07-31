@@ -2,15 +2,15 @@ package com.cosy.sun.algorithm.design.statustest;
 
 public class Hero {
 	
-	public static void main(String [] args ) throws Exception{
-		Hero hero = new Hero();
-		hero.startRun();
-		hero.setState(SPEED_UP);
-		Thread.sleep(5000);
-		hero.setState(SPEED_DOWN);
-		Thread.sleep(5000);
-		hero.stopRun();
-	}
+//	public static void main(String [] args ) throws Exception{
+//		Hero hero = new Hero();
+//		hero.startRun();
+//		hero.setState(SPEED_UP);
+//		Thread.sleep(5000);
+//		hero.setState(SPEED_DOWN);
+//		Thread.sleep(5000);
+//		hero.stopRun();
+//	}
     
     public static final RunState COMMON = new RunStateOne();//正常状态
     

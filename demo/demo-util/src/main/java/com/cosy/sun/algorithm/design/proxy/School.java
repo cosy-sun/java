@@ -23,14 +23,14 @@ public class School implements Istudent{
 	}
 
 	
-	public static void main(String [] args ) {
-		Child child = new Child("sunzhenhua");
-		
-		BigChild bigChild = new BigChild(child);
-		
-		School school = new School();
-		school.addStudent(bigChild);
-		school.readBook();
-	}
+//	public static void main(String [] args ) {
+//		Child child = new Child("sunzhenhua");
+//
+//		BigChild bigChild = new BigChild(child);
+//
+//		School school = new School();
+//		school.addStudent(bigChild);
+//		school.readBook();
+//	}
 	
 }

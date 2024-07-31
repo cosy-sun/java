@@ -23,9 +23,9 @@ public class BinaryTree<T extends Comparable<T>, K> {
 	public void traversingMid(Element<T, K> ele) {
 		System.out.println((String)ele.getValue());
 		if(ele.left == null && ele.right == null) {
-		} else if (ele.left == null && ele.right != null) {
+		} else if (ele.left == null) {
 			traversingMid(ele.right);
-		} else if (ele.right == null && ele.left != null) {
+		} else if (ele.right == null) {
 			traversingMid(ele.left);
 		} else {
 			traversingMid(ele.left);
