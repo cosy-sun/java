@@ -1,7 +1,7 @@
 package com.cosy.sun;
 
 import com.cosy.sun.algorithm.sort.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 

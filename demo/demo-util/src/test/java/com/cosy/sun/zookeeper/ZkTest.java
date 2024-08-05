@@ -7,8 +7,8 @@ import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.nio.charset.StandardCharsets;
 
@@ -16,7 +16,7 @@ public class ZkTest {
 
     private CuratorFramework build = null;
 
-    @Before
+    @BeforeEach
     public void setup() throws Exception {
         build = CuratorFrameworkFactory.builder()
                 .connectString("localhost:2181")

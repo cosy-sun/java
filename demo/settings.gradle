@@ -1,7 +1,5 @@
 rootProject.name="demo"
-//include "demo-manager-tm"
 include "demo-framework"
-//include "demo-manager-admin"
 include 'demo-util'
 
 rootProject.children.each {project ->

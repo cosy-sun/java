@@ -1,7 +1,7 @@
 package com.cosy.sun.jdk.newj;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class Java20NewFuncTest {
     Java20NewFunc java20NewFunc = new Java20NewFunc();

@@ -1,6 +1,7 @@
 package com.cosy.sun.algorithm.design.annotation;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 public class SetWorkTimeTest {
 

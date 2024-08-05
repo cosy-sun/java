@@ -1,17 +1,17 @@
 server:
   port: 10001
   context-path: /demo-rocketmq
-rocketmq:
-  name-server: test:9876
-  producer:
-    group: demo-producer
+#rocketmq:
+#  name-server: test:9876
+#  producer:
+#    group: demo-producer
 spring:
   application:
     name: simple-boot-project
-    url: redis://test:6379
-  data:
-    mongodb:
-      uri: mongodb://test:27017/test
+    url: redis://localhost:6379
+#  data:
+#    mongodb:
+#      uri: mongodb://test:27017/test
   mail:
     host: smtp.163.com
     port: 465
@@ -25,21 +25,21 @@ spring:
           starttls:
             enable: true
             required: true
-  kafka:
-    bootstrap-servers: test:9092
-    producer:
-      retries: 0
-      batch-size: 16384
-      buffer-memory: 33554432
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-    consumer:
-      group-id: kafka-group
-      auto-offset-reset: earliest
-      enable-auto-commit: true
-      auto-commit-interval: 100
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#  kafka:
+#    bootstrap-servers: test:9092
+#    producer:
+#      retries: 0
+#      batch-size: 16384
+#      buffer-memory: 33554432
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#    consumer:
+#      group-id: kafka-group
+#      auto-offset-reset: earliest
+#      enable-auto-commit: true
+#      auto-commit-interval: 100
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
@@ -50,7 +50,7 @@ spring:
       #2.连接池配置
       #初始化连接池的连接数量 大小，最小，最大
       initial-size: 5
-      min-idle: 5x
+      min-idle: 5
       max-active: 20
       #配置获取连接等待超时的时间
       max-wait: 60000
@@ -74,38 +74,38 @@ spring:
       web-stat-filter:
         enabled: true
         url-pattern: /*
-  cache:
-    type: redis
-    redis:
-      time-to-live: 36000000
-      cache-null-value: true
-  rabbitmq:
-    host: test
-    port: 5672
-    username: guest
-    password: guest
-    listener:
-      simple:
-        #acknowledge-mode: manual
-        concurrency: 3
-        max-concurrency: 10
-  cloud:
-    zookeeper:
-      connect-string: test:2181
-      enabled: true
-      discovery:
-        enabled: true
-        register: true
-#zuul:
-#  routes:
-#    demo-cloud:
-#      path: /demo-rocketmq/**
-#      serviceId: demo-rocketmq
-hdfs:
-  url: hdfs://192.168.56.10:9000
-  username: root
-  replication: 2
-  blocksize: 67108864
+#  cache:
+#    type: redis
+#    redis:
+#      time-to-live: 36000000
+#      cache-null-value: true
+#  rabbitmq:
+#    host: test
+#    port: 5672
+#    username: guest
+#    password: guest
+#    listener:
+#      simple:
+#        #acknowledge-mode: manual
+#        concurrency: 3
+#        max-concurrency: 10
+#  cloud:
+#    zookeeper:
+#      connect-string: test:2181
+#      enabled: true
+#      discovery:
+#        enabled: true
+#        register: true
+##zuul:
+##  routes:
+##    demo-cloud:
+##      path: /demo-rocketmq/**
+##      serviceId: demo-rocketmq
+#hdfs:
+#  url: hdfs://192.168.56.10:9000
+#  username: root
+#  replication: 2
+#  blocksize: 67108864
 feign:
   client:
     config:

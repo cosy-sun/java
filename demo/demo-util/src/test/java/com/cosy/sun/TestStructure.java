@@ -4,7 +4,7 @@ import com.cosy.sun.algorithm.structure.BinaryTree;
 import com.cosy.sun.algorithm.structure.LongestCommonSubsequene;
 import com.cosy.sun.algorithm.structure.Queue;
 import com.cosy.sun.algorithm.structure.Stack;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.UUID;
