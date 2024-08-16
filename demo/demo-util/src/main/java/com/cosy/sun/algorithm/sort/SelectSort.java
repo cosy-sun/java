@@ -1,5 +1,7 @@
 package com.cosy.sun.algorithm.sort;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 public class SelectSort {
     public static int[] sort(int[] array) {
         for (int i = 0; i <array.length - 1; i++) {
@@ -9,7 +11,7 @@ public class SelectSort {
                     minIndex = j;
                 }
             }
-            HeapSort.swap(array, i, minIndex);
+            ArrayUtils.swap(array, i, minIndex);
         }
         return array;
     }

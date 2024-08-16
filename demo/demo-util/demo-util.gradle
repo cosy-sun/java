@@ -1,4 +1,5 @@
 dependencies {
+	implementation "org.springframework.boot:spring-boot-starter-web"
 	implementation project(":demo-framework")
 
 	// spring-batch
@@ -49,7 +50,5 @@ dependencies {
 	implementation "io.seata:seata-spring-boot-starter:1.5.2"
 
 //	implementation "org.mapstruct:mapstruct:1.5.5.Final"
-
-	implementation "com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel:2.2.1.RELEASE"
 
 }

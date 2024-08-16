@@ -18,7 +18,7 @@ public class LC49 {
             strings.add(str);
             map.put(i, strings);
         }
-        return map.entrySet().stream().map(item -> item.getValue()).toList();
+        return map.values().stream().toList();
     }
 
     public static void main(String[] args) {

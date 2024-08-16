@@ -1,5 +1,8 @@
 package com.cosy.sun.algorithm.sort;
 
+
+import org.apache.commons.lang3.ArrayUtils;
+
 /**
  * Heap
  * @author cosy-sun
@@ -15,7 +18,7 @@ public class HeapSort {
 		buildMaxHeapInit(arr);
 //		System.out.println(Arrays.toString(arr));
 		for(int i = arr.length - 1; i >= 0; i --) {
-			swap(arr, 0, i);
+			ArrayUtils.swap(arr, 0, i);
 //			System.out.println("arr" + Arrays.toString(arr));
 			int[] tmp = new int[i];
 			System.arraycopy(arr, 0, tmp, 0, tmp.length);
@@ -81,7 +84,7 @@ public class HeapSort {
 			largest = right;
 		}
 		if(largest != index) {
-			swap(arr, index, largest);
+			ArrayUtils.swap(arr, index, largest);
 			maxHeapify(arr, largest);
 		}
 	}
@@ -102,18 +105,6 @@ public class HeapSort {
 	 */
 	public static int rightSub(int index) {
 		return (index << 1) + 1;
-	}
-	
-	/**
-	 * 交换数组元素的位置
-	 * @param arr
-	 * @param x
-	 * @param y
-	 */
-	public static void swap(int[] arr, int x, int y) {
-		int tmp = arr[x];
-		arr[x] = arr[y];
-		arr[y] = tmp;
 	}
 	
 	

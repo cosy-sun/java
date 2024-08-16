@@ -1,5 +1,7 @@
 package com.cosy.sun.algorithm.leetcode;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -25,27 +27,13 @@ public class LC283 {
         if(nums.length == 0) {
             return ;
         }
-        int left = 0, right = 0;
-        while (right < nums.length) {
+        int left = 0, right = -1;
+        while (++right < nums.length) {
             if(nums[right] != 0) {
-                int tmp = nums[right];
-                nums[right] = nums[left];
-                nums[left] = tmp;
-                left ++;
+                ArrayUtils.swap(nums, right, left ++);
             }
-            right ++;
-
         }
         System.out.println(Arrays.toString(nums));
-    }
-
-    public static void main(String[] args) {
-//        moveZeros2Right(new int[] {1, 0, 3, 10, 0, -1});
-        moveZeros2Left(new int[] {1, 0, 3, 10, 0, -1});
-//        moveZeros2Right(new int[] {1, 0, 3, 10, 0, -1, 0});
-//        moveZeros2Right(new int[] {1, 0, 3, 10, 0, 0, 0});
-//        moveZeros2Right(null);
-//        moveZeros2Right(new int[] {});
     }
 
 }

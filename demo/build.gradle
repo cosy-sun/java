@@ -33,9 +33,9 @@ subprojects{
 //            }
 //        }
 //    }
-    bootJar {
-        dependsOn(":jar")
-    }
+//    bootJar {
+//        dependsOn(":jar")
+//    }
     test {
         useJUnitPlatform()
     }

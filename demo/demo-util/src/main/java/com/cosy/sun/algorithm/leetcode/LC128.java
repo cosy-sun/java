@@ -1,9 +1,8 @@
 package com.cosy.sun.algorithm.leetcode;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class LC128 {
 
@@ -11,34 +10,27 @@ public class LC128 {
         if(Objects.isNull(nums) || nums.length == 0) {
             return 0;
         }
-        Set<Integer> ints = new HashSet<>();
+        // 先用hashset排序一下，
+        Set<Integer> ints = new TreeSet<>();
         for(int num : nums) {
             ints.add(num);
         }
-        Integer[] array = ints.toArray(new Integer[ints.size()]);
-        Arrays.sort(array);
-        int max = 1;
-        int tmpMax = 1;
-        for (int i = 1; i < array.length; i++) {
-            if(array[i] - 1 == array[i - 1]) {
-                tmpMax ++;
-            } else {
-                tmpMax = 1;
+
+        int max = 0;
+        // 遍历hash，获取最长的
+        for (int num : ints) {
+            if (!ints.contains(num - 1)) {
+                int currentNum = num;
+                int currentLen = 1;
+                while (ints.contains(++ currentNum)) {
+                    currentLen ++;
+                }
+                max = Math.max(max, currentLen);
             }
-            max = Math.max(max, tmpMax);
         }
-        System.out.println(max);
+
         return max;
     }
 
-    public static void main(String[] args) {
-        longestConsecutive(new int[]{100, 2, 4, 6, 5, 3});
-        longestConsecutive(new int[]{100,4,200,1,3,2});
-        longestConsecutive(new int[]{100, 2, 4, 6, 2, 3, 3, 4, 5, 5});
-        longestConsecutive(new int[]{9,1,4,7,3,-1,0,5,8,-1,6});
-        longestConsecutive(new int[]{100, 89, 2, 6, 10, 70});
-        longestConsecutive(new int[]{});
-        longestConsecutive(null);
-    }
 
 }
