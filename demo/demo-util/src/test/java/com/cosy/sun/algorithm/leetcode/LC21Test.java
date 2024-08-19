@@ -1,6 +1,6 @@
 package com.cosy.sun.algorithm.leetcode;
 
-import com.cosy.sun.algorithm.leetcode.bean.ListNode;
+import com.cosy.sun.algorithm.bean.ListNode;
 import org.junit.jupiter.api.Test;
 
 public class LC21Test {

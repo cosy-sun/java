@@ -1,6 +1,6 @@
 package com.cosy.sun.algorithm.leetcode;
 
-import com.cosy.sun.algorithm.leetcode.bean.ListNode;
+import com.cosy.sun.algorithm.bean.ListNode;
 
 /**
  * 给你一个链表的头节点 head ，判断链表中是否有环。

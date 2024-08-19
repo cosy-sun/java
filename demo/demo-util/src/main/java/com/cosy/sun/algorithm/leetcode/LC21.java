@@ -1,6 +1,6 @@
 package com.cosy.sun.algorithm.leetcode;
 
-import com.cosy.sun.algorithm.leetcode.bean.ListNode;
+import com.cosy.sun.algorithm.bean.ListNode;
 
 public class LC21 {
 

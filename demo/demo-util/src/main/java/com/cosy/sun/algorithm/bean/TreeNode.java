@@ -1,6 +1,6 @@
-package com.cosy.sun.algorithm.leetcode.bean;
+package com.cosy.sun.algorithm.bean;
 
-public class TreeNode {
+public class TreeNode implements Comparable<Integer> {
     public int val;
     public TreeNode left;
     public TreeNode right;
@@ -18,9 +18,15 @@ public class TreeNode {
         this.right = right;
     }
 
+
     @Override
     public String toString() {
         return String.valueOf(val);
+    }
+
+    @Override
+    public int compareTo(Integer o) {
+        return 0;
     }
 }
 

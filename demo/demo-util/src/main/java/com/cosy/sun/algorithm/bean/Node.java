@@ -1,4 +1,4 @@
-package com.cosy.sun.algorithm.leetcode.bean;
+package com.cosy.sun.algorithm.bean;
 
 public class Node {
     public int val;

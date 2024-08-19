@@ -1,6 +1,6 @@
 package com.cosy.sun.algorithm.leetcode;
 
-import com.cosy.sun.algorithm.leetcode.bean.Node;
+import com.cosy.sun.algorithm.bean.Node;
 
 import java.util.HashMap;
 import java.util.Map;

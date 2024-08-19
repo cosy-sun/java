@@ -1,6 +1,6 @@
 package com.cosy.sun.algorithm.leetcode;
 
-import com.cosy.sun.algorithm.leetcode.bean.TreeNode;
+import com.cosy.sun.algorithm.bean.TreeNode;
 
 public class LC104 {
 
