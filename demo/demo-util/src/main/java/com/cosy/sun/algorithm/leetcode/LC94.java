@@ -9,7 +9,12 @@ import java.util.List;
 
 public class LC94 {
 
-    public List<Integer> inorderTraversal(TreeNode root) {
+    /**
+     * 中序遍历， 不递归
+     * @param root
+     * @return
+     */
+    public static List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Deque<TreeNode> stk = new LinkedList<>();
         while (root != null || !stk.isEmpty()) {

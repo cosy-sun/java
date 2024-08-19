@@ -5,10 +5,12 @@ import java.util.Map;
 
 public class LC136 {
 
-    public static void main(String[] args) {
-        int[] ints = {4,1,2,1,2};
-        int i = singleNumber(ints);
-        System.out.println(i);
+    public static int singleNumber1(int[] nums) {
+        int res = 0;
+        for (int i : nums) {
+            res ^=i;
+        }
+        return res;
     }
 
     public static int singleNumber(int[] nums) {

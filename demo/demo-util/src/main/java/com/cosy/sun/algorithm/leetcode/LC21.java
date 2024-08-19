@@ -4,27 +4,6 @@ import com.cosy.sun.algorithm.leetcode.bean.ListNode;
 
 public class LC21 {
 
-    public static void main(String[] args) {
-        ListNode listNode = new ListNode(1);
-        ListNode listNode2 = new ListNode(2);
-        ListNode listNode4 = new ListNode(4);
-        listNode.next = listNode2;
-        listNode2.next = listNode4;
-
-        ListNode listNode21 = new ListNode(1);
-        ListNode listNode23 = new ListNode(3);
-        ListNode listNode24 = new ListNode(4);
-
-        listNode21.next = listNode23;
-        listNode23.next = listNode24;
-
-
-        ListNode listNode1 = mergeTwoLists(listNode, listNode21);
-
-        System.out.println(listNode1);
-
-    }
-
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if(l1 == null && l2 == null) {
             return null;

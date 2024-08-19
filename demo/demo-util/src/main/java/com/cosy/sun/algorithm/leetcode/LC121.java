@@ -2,13 +2,6 @@ package com.cosy.sun.algorithm.leetcode;
 
 public class LC121 {
 
-    public static void main(String[] args) {
-//        System.out.println(maxProfit(new int[] {7, 1, 5, 3, 6, 4}));
-//        System.out.println(maxProfit(new int[] {7, 5, 3, 6, 4}));
-        System.out.println(optimizeMaxProfit(new int[] {7, 1, 5, 3, 6, 4}));
-        System.out.println(optimizeMaxProfit(new int[] {7, 5, 3, 6, 4}));
-
-    }
 
     public static int optimizeMaxProfit(int[] prices) {
         if(prices.length < 2) {
