@@ -28,7 +28,7 @@ public class JedisConfig {
 
 	@Bean
 	public JedisPool jedisPool() {
-		JedisPool pool =  new JedisPool("localhost", 6379);
+		JedisPool pool =  new JedisPool("172.17.0.1", 6379);
 		pool.setMaxIdle(10);
 		pool.setMaxTotal(10);
 		return pool;

@@ -14,7 +14,7 @@ public class RedissonConfig {
 	public RedissonClient redissonClient() {
 		Config config = new Config();
 		config.setTransportMode(TransportMode.NIO);
-		config.useSingleServer().setAddress("redis://localhost:6379");
+		config.useSingleServer().setAddress("redis://172.17.0.1:6379");
 		return Redisson.create(config);
 	}
 }

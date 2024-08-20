@@ -1,8 +1,8 @@
 dependencies {
 	api "de.codecentric:spring-boot-admin-starter-client:${adminVersion}"
 
-	api "org.springframework.cloud:spring-cloud-starter-zookeeper-discovery"
-	api "org.apache.zookeeper:zookeeper:${zookeeperVersion}"
+//	api "org.springframework.cloud:spring-cloud-starter-zookeeper-discovery"
+//	api "org.apache.zookeeper:zookeeper:${zookeeperVersion}"
 	api "com.netflix.ribbon:ribbon-loadbalancer:2.3.0"
 //	api "io.springfox:springfox-swagger2:${swaggerVersion}"
 //    api "io.springfox:springfox-swagger-ui:${swaggerVersion}"
@@ -12,9 +12,6 @@ dependencies {
     api "org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.2.10.RELEASE"
 	api "org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard:2.2.10.RELEASE"
 	api "org.springframework.cloud:spring-cloud-starter-openfeign"
-	
-//	api "com.codingapi.txlcn:txlcn-tc:${txlcnVersion}"
-//	api "com.codingapi.txlcn:txlcn-txmsg-netty:${txlcnVersion}"
 	
 	api "org.springframework.boot:spring-boot-starter-actuator"
 	
@@ -28,5 +25,4 @@ dependencies {
     api "com.alibaba:fastjson:${fastJsonVersion}"
     api "cn.hutool:hutool-all:${hutoolVersion}"
     api "com.google.guava:guava:${guavaVersion}"
-
 }

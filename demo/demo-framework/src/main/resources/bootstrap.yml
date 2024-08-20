@@ -1,11 +1,11 @@
 spring:
   cloud:
     zookeeper:
-      connect-string: test:2181
-      enabled: true
+      connect-string: 172.17.0.1:2181
+      enabled: false
       discovery:
-        enabled: true
-        register: true 
+        enabled: false
+        register: false
 #  boot:
 #    admin:
 #      client:
@@ -13,11 +13,6 @@ spring:
   logging:
     file:
       name: admin-client.log
-  tx-lcn:
-    client:
-      manager-address: localhost:8769
-    logger:
-      enabled: true
 feign:
   client:
     config:
@@ -35,4 +30,10 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*' 
+        include: '*'
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD

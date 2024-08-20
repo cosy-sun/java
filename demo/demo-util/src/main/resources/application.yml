@@ -1,17 +1,15 @@
 server:
-  port: 10001
-  context-path: /demo-rocketmq
+  port: 10002
 #rocketmq:
 #  name-server: test:9876
 #  producer:
 #    group: demo-producer
 spring:
   application:
-    name: simple-boot-project
-    url: redis://localhost:6379
-#  data:
-#    mongodb:
-#      uri: mongodb://test:27017/test
+    name: demo-util
+  data:
+    mongodb:
+      uri: mongodb://172.17.0.1:27017/test
   mail:
     host: smtp.163.com
     port: 465
@@ -25,27 +23,27 @@ spring:
           starttls:
             enable: true
             required: true
-#  kafka:
-#    bootstrap-servers: test:9092
-#    producer:
-#      retries: 0
-#      batch-size: 16384
-#      buffer-memory: 33554432
-#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-#    consumer:
-#      group-id: kafka-group
-#      auto-offset-reset: earliest
-#      enable-auto-commit: true
-#      auto-commit-interval: 100
-#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  kafka:
+    bootstrap-servers: 172.17.0.1:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: kafka-group
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      auto-commit-interval: 100
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://test:3306/test?useUnicode=true&characteerEncoding=utf-8
+    url: jdbc:mysql://172.17.0.1:3306/test?useUnicode=true&characteerEncoding=utf-8
     username: root
-    password: 123456
+    password: root
     druid:
       #2.连接池配置
       #初始化连接池的连接数量 大小，最小，最大
@@ -79,16 +77,16 @@ spring:
 #    redis:
 #      time-to-live: 36000000
 #      cache-null-value: true
-#  rabbitmq:
-#    host: test
-#    port: 5672
-#    username: guest
-#    password: guest
-#    listener:
-#      simple:
-#        #acknowledge-mode: manual
-#        concurrency: 3
-#        max-concurrency: 10
+  rabbitmq:
+    host: 172.17.0.1
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        #acknowledge-mode: manual
+        concurrency: 3
+        max-concurrency: 10
 #  cloud:
 #    zookeeper:
 #      connect-string: test:2181
@@ -116,7 +114,7 @@ feign:
     enabled: true
 management:
   server:
-    port: 8081
+    port: 8080
   endpoint:
     health:
       show-details: always

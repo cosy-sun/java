@@ -19,7 +19,7 @@ public class ZkTest {
     @BeforeEach
     public void setup() throws Exception {
         build = CuratorFrameworkFactory.builder()
-                .connectString("localhost:2181")
+                .connectString("172.17.0.1:2181")
                 .sessionTimeoutMs(3000)
                 .connectionTimeoutMs(3000)
                 .retryPolicy(new ExponentialBackoffRetry(1000, 3))
