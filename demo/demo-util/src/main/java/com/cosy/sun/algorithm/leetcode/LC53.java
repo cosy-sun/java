@@ -2,10 +2,6 @@ package com.cosy.sun.algorithm.leetcode;
 
 public class LC53 {
 
-    public static void main(String[] args) {
-        System.out.println(maxSubArraySum(new int[] {-2,1,-3,4,-1,2,1,-5,4}));
-    }
-
     public static int maxSubArraySum(int[] nums) {
         int pre = 0;
         int res = nums[0];
@@ -16,7 +12,7 @@ public class LC53 {
         return res;
     }
 
-    public int maxSubArray(int[] nums) {
+    public static int maxSubArray(int[] nums) {
         int len = nums.length;
         // dp[i] 表示：以 nums[i] 结尾的连续子数组的最大和
         int[] dp = new int[len];

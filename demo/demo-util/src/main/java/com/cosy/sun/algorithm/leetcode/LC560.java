@@ -4,11 +4,6 @@ import java.util.HashMap;
 
 public class LC560 {
 
-    public static void main(String[] args) {
-//        System.out.println(subArraySum(new int[]{1, 1, 1, -1, 0, 2}, 2));
-        System.out.println(optimizeSubArraySum(new int[]{1, 1, 1, -1, 0, 2}, 2));
-    }
-
     public static int subArraySum(int[] nums, int k) {
         int ans = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -25,7 +20,7 @@ public class LC560 {
 
     public static int optimizeSubArraySum(int[] nums, int k) {
         int count = 0, pre = 0;
-        HashMap< Integer, Integer > mp = new HashMap < > ();
+        HashMap<Integer, Integer> mp = new HashMap<>();
         mp.put(0, 1);
         for (int i = 0; i < nums.length; i++) {
             pre += nums[i];

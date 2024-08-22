@@ -22,8 +22,9 @@ public class LC128 {
             if (!ints.contains(num - 1)) {
                 int currentNum = num;
                 int currentLen = 1;
-                while (ints.contains(++ currentNum)) {
+                while (ints.contains(currentNum + 1)) {
                     currentLen ++;
+                    currentNum += 1;
                 }
                 max = Math.max(max, currentLen);
             }

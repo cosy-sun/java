@@ -2,7 +2,7 @@ package com.cosy.sun.algorithm.leetcode;
 
 public class LC73 {
 
-    public void setZeros(int[][] matrix) {
+    public static void setZeros(int[][] matrix) {
         boolean[] bool1 = new boolean[matrix.length];
         boolean[] bool2 = new boolean[matrix[0].length];
         for (int i = 0; i < matrix.length; i++) {

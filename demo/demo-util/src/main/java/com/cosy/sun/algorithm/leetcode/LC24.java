@@ -4,7 +4,7 @@ import com.cosy.sun.algorithm.bean.ListNode;
 
 public class LC24 {
     
-    public ListNode swapPairs(ListNode head) {
+    public static ListNode swapPairs(ListNode head) {
         ListNode preHead = new ListNode(0);
         preHead.next = head;
         ListNode temp = preHead;

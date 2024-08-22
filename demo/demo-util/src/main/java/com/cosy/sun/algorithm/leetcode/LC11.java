@@ -2,7 +2,7 @@ package com.cosy.sun.algorithm.leetcode;
 
 public class LC11 {
 
-    public int maxArea(int[] height) {
+    public static int maxArea(int[] height) {
         int l = 0, r = height.length - 1;
         int ans = 0;
         while (l < r) {

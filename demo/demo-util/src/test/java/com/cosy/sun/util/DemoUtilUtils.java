@@ -1,10 +1,19 @@
-package com.cosy.sun.algorithm;
+package com.cosy.sun.util;
 
+import com.cosy.sun.algorithm.bean.ListNode;
 import com.cosy.sun.algorithm.bean.TreeNode;
 
 import java.util.Random;
 
-public class AlgorithmUtil {
+public class DemoUtilUtils {
+
+
+    public static void singleLinkedTostring(ListNode listNode1) {
+        while (listNode1 != null) {
+            System.out.println(listNode1.val);
+            listNode1 = listNode1.next;
+        }
+    }
 
     public static int[] genDescArray(int len) {
         int[] arr = new int[len];

@@ -2,30 +2,25 @@ package com.cosy.sun.algorithm.leetcode;
 
 public class LC238 {
 
-    public static void main(String[] args) {
-        LC238 lc238 = new LC238();
-        lc238.productExceptSelf(new int[] {2, 3, 4, 1, 4, 1,7,8});
-    }
-
-    public int[] productExceptSelf(int[] nums) {
+    public static int[] productExceptSelf(int[] nums) {
         int len = nums.length;
         int[] left = new int[len];
         int[] right = new int[len];
 
-        int product = 1;
         for (int i = 0; i < len; i++) {
-            left[i] = i != 0 ? product = product * nums[i - 1] :  product;
+            left[i] = i != 0 ? nums[i] * left[i - 1] :  nums[i];
         }
 
-        product = 1;
         for (int i = len - 1; i >= 0; i--) {
-            right[i] = i != len - 1 ? product = product * nums[i + 1] : product;
+            right[i] = i != len - 1 ? nums[i] * right[i + 1] : nums[i];
         }
 
         int[] ans = new int[len];
-        for (int i = 0; i < len; i++) {
-            ans[i] = left[i] * right[i];
+        for (int i = 1; i < len - 1; i++) {
+            ans[i] = left[i - 1] * right[i + 1];
         }
+        ans[0] = right[1];
+        ans[len - 1] = left[len - 2];
         return ans;
         
     }

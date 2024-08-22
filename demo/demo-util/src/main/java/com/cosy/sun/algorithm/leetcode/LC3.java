@@ -1,20 +1,14 @@
 package com.cosy.sun.algorithm.leetcode;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 给定一个字符串， 求该字符串中不重复的最长子串
  */
 public class LC3 {
 
-    public static void main(String... args) {
-        String str = "abcdabcababcdefgh";
-        LC3 instance = new LC3();
-        int i = instance.maxLengthSub(str);
-        System.out.println(i);
-    }
-
-    public int maxLengthSub(String s) {
+    public static int maxLengthSub(String s) {
         // 哈希集合，记录每个字符是否出现过
         Set<Character> occ = new HashSet<Character>();
         int n = s.length();

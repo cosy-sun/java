@@ -7,17 +7,12 @@ import java.util.List;
 
 public class LC56 {
 
-    public int[][] merge(int[][] intervals) {
+    public static int[][] merge(int[][] intervals) {
         if(intervals.length == 0) {
             return new int[0][2];
         }
 
-        Arrays.sort(intervals, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return o1[0]-o2[0];
-            }
-        });
+        Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
 
         List<int[]> merged = new ArrayList<>();
         for (int i = 0; i < intervals.length; i++) {

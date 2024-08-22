@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class LC142 {
 
-    public ListNode detectCycle(ListNode head) {
+    public static ListNode detectCycle(ListNode head) {
         HashMap<ListNode, Integer> map = new HashMap<>();
         int i = 0;
         ListNode node = head;
@@ -15,7 +15,7 @@ public class LC142 {
             if(!map.containsKey(node)) {
                 map.put(node, i ++);
             } else {
-                res = node.next;
+                res = node;
                 break;
             }
             node = node.next;
