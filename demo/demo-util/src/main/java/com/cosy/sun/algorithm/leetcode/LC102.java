@@ -9,7 +9,7 @@ import java.util.List;
 
 public class LC102 {
 
-    public List<List<Integer>> levelOrder(TreeNode root) {
+    public static List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> ans = new ArrayList<>();
         if(root == null) {
             return ans;

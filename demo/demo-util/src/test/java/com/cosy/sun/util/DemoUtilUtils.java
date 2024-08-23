@@ -10,7 +10,7 @@ public class DemoUtilUtils {
 
     public static void singleLinkedTostring(ListNode listNode1) {
         while (listNode1 != null) {
-            System.out.println(listNode1.val);
+            System.out.println(listNode1);
             listNode1 = listNode1.next;
         }
     }

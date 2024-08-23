@@ -7,16 +7,7 @@ import java.util.List;
 
 public class LC114 {
 
-    public static void main(String[] args) {
-        TreeNode treeNode1 = new TreeNode(1);
-        TreeNode treeNode2 = new TreeNode(2);
-        treeNode1.left = treeNode2;
-        LC114 lc114 = new LC114();
-        lc114.flattern(treeNode1);
-        System.out.println(treeNode1);
-    }
-
-    public void flattern(TreeNode root) {
+    public static void flattern(TreeNode root) {
         List<TreeNode> treeNodes = new ArrayList<>();
         pre(root, treeNodes);
         for (int i = 0; i < treeNodes.size() - 1; i++) {
@@ -27,7 +18,7 @@ public class LC114 {
         }
     }
 
-    public void pre(TreeNode root, List<TreeNode> list) {
+    public static void pre(TreeNode root, List<TreeNode> list) {
         if(root == null) {
             return ;
         }

@@ -2,7 +2,7 @@ package com.cosy.sun.algorithm.leetcode;
 
 public class LC200 {
 
-    public int numsIslands(char[][] grid) {
+    public static int numsIslands(char[][] grid) {
         if(grid == null || grid[0].length == 0) {
             return 0;
         }
@@ -18,7 +18,7 @@ public class LC200 {
         return ans;
     }
 
-    private void dfs(char[][] grid, int r, int c) {
+    private static void dfs(char[][] grid, int r, int c) {
         if(!inares(grid, r, c)) {
             return ;
         }
@@ -33,7 +33,7 @@ public class LC200 {
     }
 
 
-    private boolean inares(char[][] grid, int r, int c) {
+    private static boolean inares(char[][] grid, int r, int c) {
         return r >= 0
                 && r < grid.length
                 && c < grid[0].length

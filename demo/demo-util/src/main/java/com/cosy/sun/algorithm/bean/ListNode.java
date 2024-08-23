@@ -6,6 +6,8 @@ public class ListNode {
 
     public ListNode next;
 
+    public ListNode random;
+
     public ListNode() {
     }
 
@@ -20,6 +22,6 @@ public class ListNode {
 
     @Override
     public String toString() {
-        return String.valueOf(val);
+        return val + "," + (next != null ? next.val : "") + "," + (random!=null?random.val:"");
     }
 }

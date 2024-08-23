@@ -4,7 +4,7 @@ import com.cosy.sun.algorithm.bean.TreeNode;
 
 public class LC236 {
 
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null
             || root == p
             || root == q) {

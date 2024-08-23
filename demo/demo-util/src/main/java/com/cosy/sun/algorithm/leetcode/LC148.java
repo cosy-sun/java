@@ -4,21 +4,6 @@ import com.cosy.sun.algorithm.bean.ListNode;
 
 public class LC148 {
 
-    public static void main(String[] args) {
-        ListNode l1 = new ListNode(1);
-        ListNode l2 = new ListNode(-1);
-        ListNode l3 = new ListNode(8);
-        ListNode l4 = new ListNode(10);
-        ListNode l5 = new ListNode(7);
-        l1.next = l2;
-        l2.next = l3;
-        l3.next = l4;
-        l4.next = l5;
-
-        ListNode listNode = sortList(l1);
-        System.out.println(listNode);
-    }
-
     public static ListNode sortList(ListNode head) {
         if(head == null) {
             return null;

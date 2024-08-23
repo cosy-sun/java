@@ -2,13 +2,7 @@ package com.cosy.sun.algorithm.leetcode;
 
 public class LC994 {
 
-    public static void main(String[] args) {
-        LC994 lc994 = new LC994();
-        int i = lc994.orangsRotting(new int[][]{{2, 1, 1}, {1, 1, 0}, {0, 1, 1}});
-        System.out.println(i);
-    }
-
-    public int orangsRotting(int[][] grid) {
+    public static int orangsRotting(int[][] grid) {
         int minutes = 0;
 
         // 如果没有好橘子
@@ -29,7 +23,7 @@ public class LC994 {
         return minutes;
     }
 
-    private boolean change(int[][] grid, int num) {
+    private static boolean change(int[][] grid, int num) {
         boolean flag = false;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
@@ -38,7 +32,7 @@ public class LC994 {
                     boolean flag2 = isFlag(grid, num, i+1, j);
                     boolean flag3 = isFlag(grid, num, i, j-1);
                     boolean flag4 = isFlag(grid, num, i, j+1);
-                    flag = flag ? flag : flag1 || flag2|| flag3||flag4;
+                    flag = flag ? flag : flag1 || flag2|| flag3 || flag4;
                 }
             }
         }
@@ -54,10 +48,10 @@ public class LC994 {
     }
 
 
-    private boolean hasGood(int[][] grid) {
-        for (int i = 0; i < grid.length; i++) {
+    private static boolean hasGood(int[][] grid) {
+        for (int[] ints : grid) {
             for (int j = 0; j < grid[0].length; j++) {
-                if(grid[i][j] == 1) {
+                if (ints[j] == 1) {
                     return true;
                 }
             }
