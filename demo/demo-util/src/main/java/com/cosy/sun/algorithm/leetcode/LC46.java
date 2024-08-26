@@ -6,13 +6,7 @@ import java.util.List;
 
 public class LC46 {
 
-    public static void main(String[] args) {
-        LC46 lc46 = new LC46();
-        List<List<Integer>> permute = lc46.permute(new int[]{1, 2, 3});
-        System.out.println(permute);
-    }
-
-    public List<List<Integer>> permute(int[] nums) {
+    public static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
 
         List<Integer> output = new ArrayList<>();
@@ -25,7 +19,7 @@ public class LC46 {
         return res;
     }
 
-    public void backtrack(int n, List<Integer> output, List<List<Integer>> res, int first) {
+    public static void backtrack(int n, List<Integer> output, List<List<Integer>> res, int first) {
         // 所有数都填完了
         if (first == n) {
             res.add(new ArrayList<>(output));

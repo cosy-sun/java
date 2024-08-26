@@ -6,7 +6,7 @@ public class LC207Test {
 
     @Test
     public void canFinishTest() {
-        int[][] ints = {{1, 2}, {0, 1}, {0,2}};
-        LC207.canFinish(2, ints);
+        int[][] ints = {{1, 2}, {2, 3}, {3,4}};
+        LC207.canFinish(5, ints);
     }
 }

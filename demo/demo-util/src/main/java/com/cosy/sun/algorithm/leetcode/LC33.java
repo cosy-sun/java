@@ -2,7 +2,7 @@ package com.cosy.sun.algorithm.leetcode;
 
 public class LC33 {
 
-    public int search(int[] nums, int target) {
+    public static int search(int[] nums, int target) {
         int n = nums.length;
         if(n == 0) {
             return -1;

@@ -5,13 +5,9 @@ import java.util.List;
 
 public class LC22 {
 
-    public List<String> generaterParenthesis(int n) {
-        return generate(n);
-    }
+    static List<String>[] cache = new ArrayList[100];
 
-    List[] cache = new ArrayList[100];
-
-    private List<String> generate(int n) {
+    public static List<String> generate(int n) {
         if(cache[n] != null) {
             return cache[n];
         }

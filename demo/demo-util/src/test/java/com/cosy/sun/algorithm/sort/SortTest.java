@@ -1,11 +1,10 @@
-package com.cosy.sun;
+package com.cosy.sun.algorithm.sort;
 
-import com.cosy.sun.algorithm.sort.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-public class TestTest {
+public class SortTest {
 
 	private static int[] arr = {6, 5, 10, 15, 12, 50, 4, 2, 7, 23, 22, 14, 16, 19, 20, 8};
 	private static int[] arrT = {4, 1, 10, 2};

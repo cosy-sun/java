@@ -2,11 +2,7 @@ package com.cosy.sun.algorithm.leetcode;
 
 public class LC74 {
 
-    public static void main(String[] args) {
-        LC74 lc74 = new LC74();
-        boolean b = lc74.searchMatrixOptime(new int[][]{{1}}, 1);
-        System.out.println(b);
-    }
+    // 也可以使用行列二分法定位
 
     public boolean searchMatrixOptime(int[][] matrix, int target) {
         int deepth = matrix.length;

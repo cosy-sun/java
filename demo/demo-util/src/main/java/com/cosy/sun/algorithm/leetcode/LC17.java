@@ -17,9 +17,6 @@ public class LC17 {
         map.put("9", Arrays.asList('w', 'x', 'y', 'z'));
     }
 
-    public static void main(String[] args) {
-        System.out.println(letterCombinations("234"));
-    }
 
     public static List<String> letterCombinations(String digests) {
         if(digests.length() == 0) {

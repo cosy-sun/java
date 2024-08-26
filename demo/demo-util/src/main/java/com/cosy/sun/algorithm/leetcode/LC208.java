@@ -2,17 +2,7 @@ package com.cosy.sun.algorithm.leetcode;
 
 public class LC208 {
 
-    public static void main(String[] args) {
-        Trie trie = new Trie();
-        trie.insert("sunzhenhua");
-        boolean sunzhenhua = trie.search("sunzhenhua");
-        boolean sun = trie.search("sun");
-        trie.insert("sun");
-        boolean sun1 = trie.search("sun");
-        System.out.println("");
-    }
-
-    static class Trie{
+    public static class Trie{
 
         private Trie[] child;
         private boolean isEnd;

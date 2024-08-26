@@ -2,13 +2,6 @@ package com.cosy.sun.algorithm.leetcode;
 
 public class LC34 {
 
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 3,3, 4};
-        LC34 lc34 = new LC34();
-        int[] ints = lc34.searchRange(nums, 3);
-        System.out.println(ints);
-    }
-
     public int[] searchRange(int[] nums, int target) {
         int leftIdx = binarySearch(nums, target, true);
         int rightIdx = binarySearch(nums, target, false) - 1;

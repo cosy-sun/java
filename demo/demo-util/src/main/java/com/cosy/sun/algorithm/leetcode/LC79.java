@@ -2,7 +2,7 @@ package com.cosy.sun.algorithm.leetcode;
 
 public class LC79 {
 
-    public boolean exist(char[][] board, String word) {
+    public static boolean exist(char[][] board, String word) {
         int h = board.length;
         int w = board[0].length;
 
@@ -18,7 +18,7 @@ public class LC79 {
         return false;
     }
 
-    private boolean check(char[][] board, boolean[][] boardTmp, int i, int j, String word, int i1) {
+    private static boolean check(char[][] board, boolean[][] boardTmp, int i, int j, String word, int i1) {
         if(board[i][j] != word.charAt(i1)) {
             return false;
         } else if (i1 == word.length() - 1) {

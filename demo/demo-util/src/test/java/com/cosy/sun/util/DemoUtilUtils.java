@@ -3,6 +3,7 @@ package com.cosy.sun.util;
 import com.cosy.sun.algorithm.bean.ListNode;
 import com.cosy.sun.algorithm.bean.TreeNode;
 
+import java.util.List;
 import java.util.Random;
 
 public class DemoUtilUtils {
@@ -61,5 +62,12 @@ public class DemoUtilUtils {
         treeNode21.left = treeNode4;
         treeNode21.right = treeNode3;
         return treeNode1;
+    }
+
+    public static void toString(List<List<String>> aabbcc) {
+        aabbcc.forEach(item -> {
+            item.forEach(System.out::print);
+            System.out.println();
+        });
     }
 }
